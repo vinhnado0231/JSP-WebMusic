@@ -1,5 +1,6 @@
 <%@ page import="com.example.jspwebmusic.model.bean.Playlist" %>
-<%@ page import="java.util.ArrayList" %><%--
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="com.example.jspwebmusic.model.bean.Song" %><%--
   Created by IntelliJ IDEA.
   User: Huu Phuc
   Date: 11/27/2022
@@ -15,14 +16,14 @@
     <form action="PlaylistServlet" method="post">
         <table>
             <%
-                ArrayList<Playlist> playList = (ArrayList<Playlist>)request.getAttribute("playList");
+                ArrayList<Song> playList = (ArrayList<Song>)request.getAttribute("playList");
                 for(int i =0;i<playList.size();i++){
             %>
             <tr>
-            <tr	> <%=	playList.get(i).getIdList() %></tr> <br>
-            <tr	> <%=	playList.get(i).getNameList() %></tr><br>
-            <tr	> <%=	playList.get(i).getIdUser() %></tr><br>
-            ]</tr>
+            <tr	> <%=	playList.get(i).getIdSong() %></tr> <br>
+            <tr	> <%=	playList.get(i).getTenBaiHat() %></tr><br>
+            <tr	> <%=	playList.get(i).getCaSi() %></tr><br>
+            </tr>
             <%}%>
         </table>
 
