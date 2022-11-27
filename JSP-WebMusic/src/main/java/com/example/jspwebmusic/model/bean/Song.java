@@ -1,4 +1,5 @@
 package com.example.jspwebmusic.model.bean;
 
-public class Music {
+public class Song {
+
 }
