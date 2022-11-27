@@ -27,22 +27,20 @@ public class SongServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int idPlaylist = Integer.parseInt(request.getParameter("idPlaylist"));
-        ArrayList<Song> songList = songBO.searchSong("Bai Hat");
-        for (int i = 0; i < songList.size(); i++) {
-            System.out.println(songList.get(i).getTenBaiHat());
-            System.out.println(songList.get(i).getIdSong());
-            System.out.println(songList.get(i).getCaSi());
-            System.out.println(songList.get(i).getSangTac());
-            System.out.println(songList.get(i).getTarget());
-            System.out.println(songList.get(i).getThoiGian());
-            System.out.println(songList.get(i).getLoiBaiHat());
-        }
+//        ArrayList<Song> songList = songBO.searchSong("Bai Hat");
+//        for (int i = 0; i < songList.size(); i++) {
+//            System.out.println(songList.get(i).getTenBaiHat());
+//            System.out.println(songList.get(i).getIdSong());
+//            System.out.println(songList.get(i).getCaSi());
+//            System.out.println(songList.get(i).getSangTac());
+//            System.out.println(songList.get(i).getTarget());
+//            System.out.println(songList.get(i).getThoiGian());
+//            System.out.println(songList.get(i).getLoiBaiHat());
+//    }
 
-//    songBO.deleteSong(1);
-//        Song song = songBO.getSongById(idPlaylist);
-//        song.setIdSong(3);
-//        song.setCaSi("VinhnadoPRO123");
-////        songBO.updateSong(song);
+        Song song = songBO.getSongById(idPlaylist);
+        song.setLoiBaiHat("VinhnadoPRO123");
+        songBO.updateSong(song);
 //        songBO.addNewSong(song);
 
 
