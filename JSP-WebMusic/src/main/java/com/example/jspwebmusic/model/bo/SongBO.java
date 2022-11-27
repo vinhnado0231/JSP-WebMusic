@@ -26,4 +26,7 @@ public class SongBO {
     public void deleteSong(int id){
         songDAO.deleteSong(id);
     }
+    public ArrayList<Song> searchSong(String name){
+        return songDAO.searchSongByName(name);
+    }
 }
