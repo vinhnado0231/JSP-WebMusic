@@ -36,7 +36,11 @@ public class SongServlet extends HttpServlet {
 //            System.out.println(songList.get(i).getThoiGian());
 //            System.out.println(songList.get(i).getLoiBaiHat());
 //        }
+
+
         Song song = songBO.getSongById(idPlaylist);
+//        song.setCaSi("VinhnadoPRO123");
+//        songBO.updateSong(song);
         System.out.println(song.getTenBaiHat());
         System.out.println(song.getIdSong());
         System.out.println(song.getCaSi());
