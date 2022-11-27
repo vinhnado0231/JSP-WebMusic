@@ -23,7 +23,7 @@ public class PlaylistServlet extends HttpServlet {
         PlaylistBO playListBO=new PlaylistBO();
         String destination = null;
         ArrayList<Song> playList=playListBO.getAllSongByIDList(1);
-        playListBO.addPlayList(1,"Nhac pop");
+        playListBO.updatePlayList(4,1,"Nhac POP");
         request.setAttribute("playList",playList);
         destination="/ViewListTest.jsp";
         RequestDispatcher rd=getServletContext().getRequestDispatcher(destination);

@@ -17,5 +17,10 @@ public class PlaylistBO {
     public void addPlayList(int idUser,String nameList){
         playlistDAO.addPlayList(idUser,nameList);
     }
-
+    public void deletePlayList(int idlist){
+        playlistDAO.removePlayList(idlist);
+    }
+    public void updatePlayList(int idList,int idUser,String nameList){
+        playlistDAO.updatePlayList(idList,idUser,nameList);
+    }
 }

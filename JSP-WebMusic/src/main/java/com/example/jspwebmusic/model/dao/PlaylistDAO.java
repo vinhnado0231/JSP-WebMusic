@@ -81,14 +81,37 @@ public class PlaylistDAO {
         Statement stmt = null;
         try {
             stmt = conn.createStatement();
-            String sql="INSERT INTO `playlist` (`idlist`, `iduser`, `namelist`) VALUES (NULL, '?', '?')";
+            String sql="INSERT INTO playlist (idlist, iduser, namelist) VALUES (NULL,\'"+idUser +"\',\'"+nameList+"\')";
             PreparedStatement pst;
-            pst = conn.prepareStatement(sql);
-            pst.setString(1, Integer.toString(idUser));
-            pst.setString(2, nameList);
+            stmt.executeUpdate(sql);
 
-           pst.executeUpdate(sql);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public  void removePlayList(int idlist){
+        Connection conn=connectDB.getAConnect();
+        Statement stmt = null;
+        try {
+            stmt = conn.createStatement();
+            String sql="delete from playlist where idlist= \'"+idlist+"\'";
+            stmt.executeUpdate(sql);
 
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public void updatePlayList(int idList,int idUser,String nameList){
+        Connection conn=connectDB.getAConnect();
+        Statement stmt = null;
+        try {
+            stmt = conn.createStatement();
+            String sql="update playlist set namelist=?, iduser=? where idlist=?";
+            PreparedStatement preparedStatement = conn.prepareStatement(sql);
+            preparedStatement.setInt(3,idList);
+            preparedStatement.setInt(2,idUser);
+            preparedStatement.setString(1,nameList);
+            preparedStatement.executeUpdate(sql);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
