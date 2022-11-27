@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
 
 @WebServlet(name = "SongServlet", value = "/SongServlet")
 public class SongServlet extends HttpServlet {
@@ -27,16 +26,24 @@ public class SongServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int idPlaylist = Integer.parseInt(request.getParameter("idPlaylist"));
-        ArrayList<Song> songList = songBO.getAllSongByPlaylist(idPlaylist);
-        for (int i = 0; i < songList.size(); i++) {
-            System.out.println(songList.get(i).getTenBaiHat());
-            System.out.println(songList.get(i).getIdSong());
-            System.out.println(songList.get(i).getCaSi());
-            System.out.println(songList.get(i).getSangTac());
-            System.out.println(songList.get(i).getTarget());
-            System.out.println(songList.get(i).getThoiGian());
-            System.out.println(songList.get(i).getLoiBaiHat());
-        }
+//        ArrayList<Song> songList = songBO.getAllSongByPlaylist(idPlaylist);
+//        for (int i = 0; i < songList.size(); i++) {
+//            System.out.println(songList.get(i).getTenBaiHat());
+//            System.out.println(songList.get(i).getIdSong());
+//            System.out.println(songList.get(i).getCaSi());
+//            System.out.println(songList.get(i).getSangTac());
+//            System.out.println(songList.get(i).getTarget());
+//            System.out.println(songList.get(i).getThoiGian());
+//            System.out.println(songList.get(i).getLoiBaiHat());
+//        }
+        Song song = songBO.getSongById(idPlaylist);
+        System.out.println(song.getTenBaiHat());
+        System.out.println(song.getIdSong());
+        System.out.println(song.getCaSi());
+        System.out.println(song.getSangTac());
+        System.out.println(song.getTarget());
+        System.out.println(song.getThoiGian());
+        System.out.println(song.getLoiBaiHat());
 
     }
 }
