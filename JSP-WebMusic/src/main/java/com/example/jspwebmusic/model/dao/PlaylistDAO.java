@@ -15,7 +15,7 @@ public class PlaylistDAO {
             String url = "jdbc:mysql://localhost:3306/musicdb";
             Connection conn = DriverManager.getConnection(url, "root", "");
             Statement stmt = conn.createStatement();
-            String sql = "select * from song";
+            String sql = "select * from playlist";
             ResultSet rs=stmt.executeQuery(sql);
             while(rs.next()){
                 int id=Integer.parseInt(rs.getString("idlist"));

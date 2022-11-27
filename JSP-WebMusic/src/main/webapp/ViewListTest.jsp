@@ -22,7 +22,7 @@
             <tr	> <%=	playList.get(i).getIdList() %></tr> <br>
             <tr	> <%=	playList.get(i).getNameList() %></tr><br>
             <tr	> <%=	playList.get(i).getIdUser() %></tr><br>
-            ]</tr>
+            </tr>
             <%}%>
         </table>
 
