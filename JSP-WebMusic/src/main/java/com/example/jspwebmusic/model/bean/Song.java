@@ -1,20 +1,20 @@
 package com.example.jspwebmusic.model.bean;
 
 public class Song {
-    private long idSong;
+    private int idSong;
     private String tenBaiHat;
     private String caSi;
     private String loiBaiHat;
     private String sangTac;
     private String thoiGian;
-    private long luotNghe;
+    private int luotNghe;
     private String target;
 
-    public long getIdSong() {
+    public int getIdSong() {
         return idSong;
     }
 
-    public void setIdSong(long idSong) {
+    public void setIdSong(int idSong) {
         this.idSong = idSong;
     }
 
@@ -58,11 +58,11 @@ public class Song {
         this.thoiGian = thoiGian;
     }
 
-    public long getLuotNghe() {
+    public int getLuotNghe() {
         return luotNghe;
     }
 
-    public void setLuotNghe(long luotNghe) {
+    public void setLuotNghe(int luotNghe) {
         this.luotNghe = luotNghe;
     }
 
@@ -74,7 +74,8 @@ public class Song {
         this.target = target;
     }
 
-    public Song(String tenBaiHat, String caSi, String loiBaiHat, String sangTac, String thoiGian, long luotNghe, String target) {
+    public Song(int idSong, String tenBaiHat, String caSi, String loiBaiHat, String sangTac, String thoiGian, int luotNghe, String target) {
+        this.idSong = idSong;
         this.tenBaiHat = tenBaiHat;
         this.caSi = caSi;
         this.loiBaiHat = loiBaiHat;
