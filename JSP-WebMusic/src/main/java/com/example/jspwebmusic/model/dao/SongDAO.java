@@ -3,9 +3,9 @@ package com.example.jspwebmusic.model.dao;
 import com.example.jspwebmusic.model.bean.Song;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 
 public class SongDAO {
@@ -14,16 +14,18 @@ public class SongDAO {
 
     private final ConnectDB connectDB = new ConnectDB();
 
+    private static String select_all_song_by_idPlayList = "select song.id, song.TenBaiHat, song.CaSi, song.LoiBaiHat, song.SangTac, song.ThoiGian, song.LuotNghe, song.target from song " +
+            "inner join playlist_detail on playlist_detail.idsong=song.id " +
+            "inner join playlist on playlist.idlist=playlist_detail.idlist " +
+            "where playlist.idlist= ?";
+
     public ArrayList<Song> getAllSongByPlaylist(int idList) {
         ArrayList<Song> listSongs = new ArrayList<>();
         try {
             Connection conn = connectDB.getAConnect();
-            Statement stmt = conn.createStatement();
-            String sql = "select song.id, song.TenBaiHat, song.CaSi, song.LoiBaiHat, song.SangTac, song.ThoiGian, song.LuotNghe, song.target from song " +
-                    "inner join playlist_detail on playlist_detail.idsong=song.id " +
-                    "inner join playlist on playlist.idlist=playlist_detail.idlist " +
-                    "where playlist.idlist=" + idList;
-            ResultSet rs = stmt.executeQuery(sql);
+            PreparedStatement preparedStatement = conn.prepareStatement(select_all_song_by_idPlayList);
+            preparedStatement.setInt(1, idList);
+            ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
                 int id = Integer.parseInt(rs.getString("id"));
                 String name = rs.getString("TenBaiHat");
