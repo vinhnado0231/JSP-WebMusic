@@ -11,5 +11,11 @@ public class PlaylistBO {
     public ArrayList<Playlist> getAllPlaylist(){
         return playlistDAO.getAllPlaylist();
     }
+    public ArrayList<Song> getAllSongByIDList(int idlist){
+        return playlistDAO.getAllSongByIDPlayList(idlist);
+    }
+    public void addPlayList(int idUser,String nameList){
+        playlistDAO.addPlayList(idUser,nameList);
+    }
 
 }
