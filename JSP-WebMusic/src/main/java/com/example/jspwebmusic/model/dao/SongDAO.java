@@ -21,12 +21,12 @@ public class SongDAO {
             "where playlist.idlist= ?";
 
     //    private final static String insert_new_song = "insert into song values TenBaiHat=?,CaSi=?,LoiBaiHat=?,SangTac=?,ThoiGian=?,LuotNghe=?,target=?";
-    private final static String insert_new_song = "INSERT INTO `song` (`id`, `TenBaiHat`, `CaSi`, `LoiBaiHat`, `SangTac`, `ThoiGian`, `LuotNghe`, `target`) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?)";
-    private final static String update_song = "update song set TenBaiHat=?,CaSi=?,LoiBaiHat=?,SangTac=?,ThoiGian=?,LuotNghe=?,target=? where id=?";
-    private final static String delete_playlist_detail = "delete from playlist_detail where idSong=?";
-    private final static String delete_song = "delete from song where id=?";
-    private final static String select_song_by_id = "select * from song where id=?";
-    private final static String search_song = "select * from song where TenBaiHat like concat('%' , ? ,'%')";
+    private final String insert_new_song = "INSERT INTO `song` (`id`, `TenBaiHat`, `CaSi`, `LoiBaiHat`, `SangTac`, `ThoiGian`, `LuotNghe`, `target`) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?)";
+    private final String update_song = "update song set TenBaiHat=?,CaSi=?,LoiBaiHat=?,SangTac=?,ThoiGian=?,LuotNghe=?,target=? where id=?";
+    private final String delete_playlist_detail = "delete from playlist_detail where idSong=?";
+    private final String delete_song = "delete from song where id=?";
+    private final String select_song_by_id = "select * from song where id=?";
+    private final String search_song = "select * from song where TenBaiHat like concat('%' , ? ,'%')";
 
     public ArrayList<Song> getAllSongByPlaylist(int idList) {
         ArrayList<Song> listSongs = new ArrayList<>();
@@ -120,6 +120,7 @@ public class SongDAO {
             ex.printStackTrace();
         }
     }
+
     public ArrayList<Song> searchSongByName(String nameSong) {
         ArrayList<Song> listSongs = new ArrayList<>();
         try {
