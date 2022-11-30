@@ -33,7 +33,7 @@
                 </a>
                 <a
                     href="./loginform.jsp"
-                    target="app-content"
+                    target="main-content"
                     class="login-button"
                 >
                     Login now
