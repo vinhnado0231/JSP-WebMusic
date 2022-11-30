@@ -20,9 +20,32 @@ public class SongServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher requestDispatcher;
-        requestDispatcher = request.getRequestDispatcher("index.jsp");
-        requestDispatcher.forward(request, response);
+        String action = request.getParameter("action");
+        if (action == null) {
+            action = "";
+        }
+        try {
+            switch (action) {
+                case "create":
+
+                    break;
+                case "update":
+
+                    break;
+                case "delete":
+
+                    break;
+                case "search":
+
+                    break;
+                default:
+                    break;
+            }
+        } catch (ServletException ex) {
+            ex.printStackTrace();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
 
     }
 
