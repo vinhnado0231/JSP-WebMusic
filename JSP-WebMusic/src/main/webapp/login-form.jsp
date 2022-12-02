@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link rel="stylesheet" href="../app.css" />
-        <link rel="stylesheet" href="./login-form.css" />
+        <link rel="stylesheet" href="./index.css" />
+        <link rel="stylesheet" href="./login-form1.css" />
     </head>
     <body>
         <div class="login-form-container">
-            <form action="/AccountServlet" class="login-form" target="header">
+            <form action="" class="login-form">
                 <div class="login-header">
                     <h2 class="login-title">Login</h2>
                 </div>
@@ -22,7 +22,7 @@
                         placeholder="Password"
                     />
                     <a href="#" class="login-link">Forgot password?</a>
-                    <button type="submit" class="login-submit" name="login">Login</button>
+                    <button type="submit" class="login-submit">Login</button>
                 </div>
                 <div class="login-footer">
                     <p class="login-text">Not a member?</p>
