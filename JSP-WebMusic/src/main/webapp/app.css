@@ -2,6 +2,7 @@
 
     --spacing-vr-sm: 5px;
     --spacing-sm: 10px;
+    --spacing-sm-1: 15px;
     --spacing-md: 20px;
     --spacing-lg: 30px;
     --spacing-lg-1: 40px;
@@ -10,13 +11,15 @@
 
 
     --black: rgb(33, 33, 33);
+    --sub-color: rgb(46, 46, 46);
     --black-transparent: rgba(33, 33, 33, 0.742);
     --primary-color: rgb(252, 44, 44);
     --primary-light-color: rgb(253, 89, 89);
     --primary-transparent-color: rgba(252, 44, 44, 0.526);
     --primary-dark-color:rgb(224, 44, 44);
     --contrast-color: rgb(246, 246, 246);
-    --contrast-sub-color: rgb(188, 188, 188);
+    --contrast-sub-color: rgb(206, 206, 206);
+    --linear-gradient-main: linear-gradient(to right, rgb(253, 89, 89), rgb(252, 44, 44));
 
     --font-s-sm: 0.8rem;
     --font-s-sm-1: 1rem;
@@ -73,4 +76,8 @@ h2 {
 
 input {
     outline: none;
+}
+
+textarea {
+    resize: none;
 }
