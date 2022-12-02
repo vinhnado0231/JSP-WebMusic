@@ -1,4 +1,4 @@
-package com.example.jspwebmusic.model.bean;
+package model.bean;
 
 public class Account {
     private int idaccount;

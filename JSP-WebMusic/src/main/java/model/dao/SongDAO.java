@@ -1,6 +1,6 @@
-package com.example.jspwebmusic.model.dao;
+package model.dao;
 
-import com.example.jspwebmusic.model.bean.Song;
+import model.bean.Song;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

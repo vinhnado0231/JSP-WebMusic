@@ -39,7 +39,7 @@
         </style>
     </head>
         <frameset border="0" rows="100,*" name="app-content">
-            <frame  src="./View/header.jsp" />
+            <frame  src="./View/header.jsp" name="header"/>
             <frameset border="0" cols="150,*">
                 <frame name="" src="./View/sub-info.jsp" />
                 <frame name="main-content" src="./View/home.jsp" />

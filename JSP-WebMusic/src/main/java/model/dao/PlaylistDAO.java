@@ -1,7 +1,7 @@
-package com.example.jspwebmusic.model.dao;
+package model.dao;
 
-import com.example.jspwebmusic.model.bean.Playlist;
-import com.example.jspwebmusic.model.bean.Song;
+import model.bean.Playlist;
+import model.bean.Song;
 
 import java.sql.*;
 import java.util.ArrayList;

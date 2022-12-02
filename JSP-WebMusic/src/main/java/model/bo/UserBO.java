@@ -1,10 +1,7 @@
-package com.example.jspwebmusic.model.bo;
+package model.bo;
 
-import com.example.jspwebmusic.model.bean.User;
-import com.example.jspwebmusic.model.dao.UserDAO;
-
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import model.bean.User;
+import model.dao.UserDAO;
 
 public class UserBO {
     private UserDAO userDAO = new UserDAO();

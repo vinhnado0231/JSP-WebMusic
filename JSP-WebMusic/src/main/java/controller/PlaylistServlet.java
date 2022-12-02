@@ -1,15 +1,13 @@
-package com.example.jspwebmusic.controller;
+package controller;
 
-import com.example.jspwebmusic.model.bean.Playlist;
-import com.example.jspwebmusic.model.bean.Song;
-import com.example.jspwebmusic.model.bo.PlaylistBO;
+import model.bean.Song;
+import model.bo.PlaylistBO;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 @WebServlet(name = "PlaylistServlet", value = "/PlaylistServlet")
 public class PlaylistServlet extends HttpServlet {

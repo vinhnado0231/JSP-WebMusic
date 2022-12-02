@@ -1,4 +1,4 @@
-package com.example.jspwebmusic.model.bean;
+package model.bean;
 
 public class Role {
     private int idRole;

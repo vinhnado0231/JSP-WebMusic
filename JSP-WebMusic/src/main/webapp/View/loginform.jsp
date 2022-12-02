@@ -6,7 +6,7 @@
     </head>
     <body>
         <div class="login-form-container">
-            <form action="" class="login-form">
+            <form action="/AccountServlet" class="login-form" target="header">
                 <div class="login-header">
                     <h2 class="login-title">Login</h2>
                 </div>
@@ -22,7 +22,7 @@
                         placeholder="Password"
                     />
                     <a href="#" class="login-link">Forgot password?</a>
-                    <button type="submit" class="login-submit">Login</button>
+                    <button type="submit" class="login-submit" name="login">Login</button>
                 </div>
                 <div class="login-footer">
                     <p class="login-text">Not a member?</p>

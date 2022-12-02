@@ -2,7 +2,119 @@
 <html lang="en">
     <head>
         <link rel="stylesheet" href="../app.css" />
-        <link rel="stylesheet" href="./add-form2.css" />
+        <style>
+            .add-form-container {
+                display: flex;
+                width: 100%;
+                justify-content: center;
+                padding-top: calc(3 * var(--spacing-lg));
+                font-size: var(--font-s-md);
+                color: var(--contrast-color);
+            }
+
+            .add-form {
+                position: relative;
+                display: flex;
+                width: 500px;
+                flex-direction: column;
+                gap: var(--spacing-lg-2);
+                justify-content: center;
+                padding: var(--spacing-md);
+                padding-top: calc(2 * var(--spacing-lg));
+                background-color: var(--primary-transparent-color);
+                border-radius: var(--b-r-md);
+            }
+
+            .add-form-wrapper-image {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+            }
+
+            .add-form-container-logo {
+                --size-logo: 150px;
+                width: var(--size-logo);
+                height: var(--size-logo);
+                position: absolute;
+                top: calc(-2.4 * var(--spacing-lg));
+                background-color: var(--black);
+                border-radius: var(--b-r-mch);
+                padding: var(--spacing-sm);
+            }
+
+            .add-form-img {
+                width: 100%;
+                object-fit: cover;
+            }
+
+            .add-form-body {
+                display: flex;
+                flex-direction: column;
+                gap: var(--spacing-lg);
+            }
+
+            .add-form-input-main-info {
+                display: flex;
+                gap: var(--spacing-md);
+            }
+
+            .add-form-input-container {
+                flex: 1;
+            }
+
+            .add-form-input-title {
+                font-weight: 500;
+                font-size: var(--font-s-lg);
+                margin-bottom: var(--spacing-sm);
+            }
+
+            .add-form-input {
+                width: 100%;
+                padding:  var(--spacing-sm);
+                background-color: var(--sub-color);
+                border-radius: var(--b-r-md);
+                color: var(--contrast-color);
+                font-size: var(--font-s-md);
+                border: 1px solid transparent;
+            }
+
+            .add-form-input:focus {
+                border: 1px solid var(--primary-color);
+            }
+
+            .add-form-footer {
+                flex: 1;
+                display: flex;
+                justify-content: center;
+            }
+
+            .add-form-submit {
+                width: 200px;
+                background-color: var(--primary-color);
+                padding: var(--spacing-sm);
+                font-size: var(--font-s-md);
+                color: var(--contrast-color);
+                border-radius: var(--b-r-mch);
+                border: none;
+                transition: background-color 0.2s linear;
+            }
+
+            .add-form-submit:hover {
+                background-color: var(--primary-dark-color);
+            }
+
+            textarea {
+                resize: none;
+                height: 100px;
+                outline: none;
+            }
+
+            .add-form-input-file {
+                width: 200px;
+                cursor: pointer;
+            }
+
+        </style>
     </head>
     <body>
         <div class="add-form-container">

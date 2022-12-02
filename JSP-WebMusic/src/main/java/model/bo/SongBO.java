@@ -1,7 +1,7 @@
-package com.example.jspwebmusic.model.bo;
+package model.bo;
 
-import com.example.jspwebmusic.model.bean.Song;
-import com.example.jspwebmusic.model.dao.SongDAO;
+import model.bean.Song;
+import model.dao.SongDAO;
 
 import java.util.ArrayList;
 

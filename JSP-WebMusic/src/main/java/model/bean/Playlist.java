@@ -1,4 +1,4 @@
-package com.example.jspwebmusic.model.bean;
+package model.bean;
 
 public class Playlist {
     private int idList;

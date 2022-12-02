@@ -1,7 +1,7 @@
-package com.example.jspwebmusic.model.bo;
+package model.bo;
 
-import com.example.jspwebmusic.model.bean.Account;
-import com.example.jspwebmusic.model.dao.AccountDAO;
+import model.bean.Account;
+import model.dao.AccountDAO;
 
 public class AccountBO {
     private AccountDAO accountDAO = new AccountDAO();

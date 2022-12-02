@@ -1,8 +1,7 @@
-package com.example.jspwebmusic.controller;
+package controller;
 
-import com.example.jspwebmusic.model.bean.Song;
-import com.example.jspwebmusic.model.bo.AccountBO;
-import com.example.jspwebmusic.model.bo.SongBO;
+import model.bo.AccountBO;
+import model.bo.SongBO;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,7 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
 
 @WebServlet(name = "SongServlet", value = "/SongServlet")
 public class SongServlet extends HttpServlet {
