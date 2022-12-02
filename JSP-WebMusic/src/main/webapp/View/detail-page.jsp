@@ -133,6 +133,50 @@
                         </div>
                     </a>
                 </li>
+                <li class="list-song-item">
+                    <a href="./detail-page.jsp" target="main-content">
+                        <div class="list-song-item-img-container">
+                            <div class="overplay-song">
+                                <i
+                                    class="fa-regular fa-circle-play icon-play-playlist"
+                                ></i>
+                                <p class="home-play-music-text">Play music</p>
+                            </div>
+                            <img
+                                src="../Media/background-image.avif"
+                                alt=""
+                                class="general-playlist-img"
+                            />
+                        </div>
+                        <div class="list-song-item-info">
+                            <h2 class="list-song-item-title">Song 1</h2>
+                            <p class="list-song-item-author">Author 1</p>
+                            <p class="list-song-item-time">5:00</p>
+                        </div>
+                    </a>
+                </li>
+                <li class="list-song-item">
+                    <a href="./detail-page.jsp" target="main-content">
+                        <div class="list-song-item-img-container">
+                            <div class="overplay-song">
+                                <i
+                                    class="fa-regular fa-circle-play icon-play-playlist"
+                                ></i>
+                                <p class="home-play-music-text">Play music</p>
+                            </div>
+                            <img
+                                src="../Media/background-image.avif"
+                                alt=""
+                                class="general-playlist-img"
+                            />
+                        </div>
+                        <div class="list-song-item-info">
+                            <h2 class="list-song-item-title">Song 1</h2>
+                            <p class="list-song-item-author">Author 1</p>
+                            <p class="list-song-item-time">5:00</p>
+                        </div>
+                    </a>
+                </li>
             </ul>
         </div>
     </body>
