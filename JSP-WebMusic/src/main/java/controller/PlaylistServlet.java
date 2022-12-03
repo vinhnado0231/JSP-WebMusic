@@ -22,6 +22,11 @@ public class PlaylistServlet extends HttpServlet {
         PlaylistBO playListBO=new PlaylistBO();
         SongBO songBO=new SongBO();
         ArrayList<Song> playList=playListBO.getAllSongByIDList(1);
+        playListBO.removeSongFromPlayList(4,1);
+        request.setAttribute("playList",playList);
+        destination="/ViewListTest.jsp";
+        RequestDispatcher rd=getServletContext().getRequestDispatcher(destination);
+        rd.forward(request,response);
        if(request.getAttribute("generalPlaylist")!=null){
 //           ArrayList<Song> playlistSong =songBO.get();
            request.setAttribute("playList",playList);

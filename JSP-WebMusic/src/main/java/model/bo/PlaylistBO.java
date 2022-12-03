@@ -23,4 +23,10 @@ public class PlaylistBO {
     public void updatePlayList(int idList,int idUser,String nameList){
         playlistDAO.updatePlayList(idList,idUser,nameList);
     }
+    public void addSongToPlayList(int idplaylist,int idsong){
+        playlistDAO.addSongToPlayList(idplaylist,idsong);
+    }
+    public void removeSongFromPlayList(int idlist,int idsong){
+        playlistDAO.removeSongFromPlayList(idlist,idsong);
+    }
 }
