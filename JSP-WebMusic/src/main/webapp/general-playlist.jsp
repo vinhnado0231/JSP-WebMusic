@@ -61,11 +61,10 @@
                                 <% ArrayList<Playlist> playlist = (ArrayList<Playlist>) session.getAttribute("allPlaylist");
                                         for(int i=0;i<playlist.size();i++){
 
-
                                 %>
                                 <li class="general-playlist-song">
                                     <a
-                                        href="./detail-page.jsp"
+                                        href="PlaylistServlet?action=detailList&&detailList=<%=playlist.get(i).getIdList()%>"
                                         class="general-playlist-link-song"
                                     >
                                         <div

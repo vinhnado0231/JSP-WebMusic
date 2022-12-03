@@ -29,11 +29,12 @@ public class PlaylistServlet extends HttpServlet {
             session.setAttribute("allPlaylist", allPlaylist);
             RequestDispatcher rd = getServletContext().getRequestDispatcher("/general-playlist.jsp");
             rd.forward(request, response);
-        } else if (request.getParameter("action").equals("detaiList")) {
-            ArrayList<Song> playlistSong = playlistBO.getAllSongByIDList(11);
+        } else if (request.getParameter("action").equals("detailList")) {
+            System.out.println(Integer.parseInt(request.getParameter("detailList")));
+            ArrayList<Song> playlistSong = playlistBO.getAllSongByIDList(Integer.parseInt(request.getParameter("detailList")));
             HttpSession session = request.getSession();
-            session.setAttribute("generalPlaylistSong", playlistSong);
-            RequestDispatcher rd = getServletContext().getRequestDispatcher("/general-playlist.jsp");
+            session.setAttribute("playlistSong", playlistSong);
+            RequestDispatcher rd = getServletContext().getRequestDispatcher("/detail-list.jsp");
             rd.forward(request, response);
         }
 

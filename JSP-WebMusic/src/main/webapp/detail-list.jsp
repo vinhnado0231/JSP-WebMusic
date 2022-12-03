@@ -57,7 +57,7 @@
                 </div>
               </a>
             </li>
-            <% ArrayList<Song> playlistSong = (ArrayList<Song>) session.getAttribute("generalPlaylistSong");
+            <% ArrayList<Song> playlistSong = (ArrayList<Song>) session.getAttribute("playlistSong");
               for(int i=0;i<playlistSong.size();i++){
 
 
