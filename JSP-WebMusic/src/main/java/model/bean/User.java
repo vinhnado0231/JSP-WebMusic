@@ -8,6 +8,7 @@ public class User {
     private int idrole;
     private String avt;
 
+
     public User() {
     }
 
