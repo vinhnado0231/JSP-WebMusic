@@ -1,11 +1,14 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="model.bean.Song" %>
 <%@ page import="model.bean.Playlist" %>
+<%@ page import="model.bean.User" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
   <link rel="stylesheet" href="./general-playlist2.css" />
   <link rel="stylesheet" href="./index.css" />
+  <link rel="stylesheet" href="./user-avt.css" />
+
   <link
           rel="stylesheet"
           href="../Media/fontawesome-free-6.2.1-web/css/all.min.css"
@@ -29,7 +32,7 @@
         Home
       </a>
       <a
-              href="AccountServlet?action=generalPlaylist"
+              href="PlaylistServlet?action=generalPlaylist"
               class= "nav-item <%try {if (session.getAttribute("changePage").equals("generalPlaylist")) {%>
                                 active-nav
                             <%}} catch (Exception e) {}%> "
@@ -37,7 +40,7 @@
         General playlist
       </a>
       <%try {if ((boolean) session.getAttribute("checkLogin")) {%>
-      <a href="./detail-page.jsp" class="nav-item">
+      <a href="PlaylistServlet?action=yourPlaylist" class="nav-item">
         Your playlist
       </a>
       <%}} catch (Exception e) {%> <%}%>
@@ -89,18 +92,35 @@
 
     <div class="container-app-content">
       <div class="general-playlist-container">
-        <h2 class="general-playlist-title"><%=((Playlist)session.getAttribute("playlistNow")).getNameList()%></h2>
+        <%
+          User us=(User)session.getAttribute("userNow");
+        %>
+        <h2 class="general-playlist-title"> Welcome <%=us.getName()%>, Your Playlist </h2>
         <div class="general-playlist-content">
           <ul class="general-playlist">
 
-            <% ArrayList<Song> playlistSong = (ArrayList<Song>) session.getAttribute("playlistSong");
-              for(int i=0;i<playlistSong.size();i++){
 
+            <li class="general-playlist-add-song">
+              <a
+                      href="./add-form.jsp"
+                      class="add-song-container"
+              >
+                <div class="overplay-add-song">
+                  <i
+                          class="fa-solid fa-plus icon-play-playlist"
+                  ></i>
+                </div>
+              </a>
+            </li>
+
+            <% ArrayList<Playlist> playlist = (ArrayList<Playlist>) session.getAttribute("yourPlaylist");
+              if(playlist!=null){
+              for(int i=0;i<playlist.size();i++){
 
             %>
             <li class="general-playlist-song">
               <a
-                      href="PlaylistServlet?action=detailPage&&idSongNow=<%=playlistSong.get(i).getIdSong()%>"
+                      href="PlaylistServlet?action=detailList&&detailList=<%=playlist.get(i).getIdList()%>"
                       class="general-playlist-link-song"
               >
                 <div
@@ -116,7 +136,7 @@
                   </div>
                   <img
 
-                          src="<%=playlistSong.get(i).getTarget()%>"
+                          src="<%=playlist.get(i).getTarget()%>"
                           alt=""
                           class="general-playlist-img"
                   />
@@ -125,28 +145,28 @@
                   <h2
                           class="general-playlist-song-title"
                   >
-                    <%=playlistSong.get(i).getTenBaiHat()%>
+                    <%=playlist.get(i).getNameList()%>
                   </h2>
                   <p
                           class="general-playlist-song-author"
                   >
-                    <%=playlistSong.get(i).getCaSi()%>
+<%--                    <%=playlist.get(i).getIdUser()%>--%>
                   </p>
                   <p
                           class="general-playlist-song-time"
                   >
-                    <%=playlistSong.get(i).getThoiGian()%>
+<%--                    <%=playlist.get(i).getIdList()%>--%>
                   </p>
                 </div>
               </a>
               <a
-                      href="./edit-form.jsp"
+                      href="PlaylistServlet?action=detailList&&detailList=<%=playlist.get(i).getIdList()%>"
                       class="button-song"
               >
-                Edit
+                Detail
               </a>
             </li>
-            <%  }%>
+            <%  }}%>
           </ul>
         </div>
       </div>
