@@ -25,4 +25,7 @@ public class AccountBO {
     public boolean checkLogin(String username, String password) {
         return accountDAO.checkLogin(username, password);
     }
+    public Account findAccountByIdAccount(int idaccount){
+        return accountDAO.findAccountByIdAccount(idaccount);
+    }
 }

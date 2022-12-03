@@ -15,11 +15,31 @@ public class UserDAO {
     private final String find_user_by_id = "select * from user where iuser=?";
     private final String insert_new_user = "INSERT INTO `user` (`iduser`, `name`, `gmail`, `idaccount`, `idrole`) VALUES (NULL, ?, ?, ?, ?)";
     private final String update_user = "update user set name=?,gmail=?,idaccount=?,idrole=? where iduser=?";
+    private final String get_user_by_idaccount="select * from user where idaccount=?";
 
     public User getUserById(int id) {
         try {
             PreparedStatement preparedStatement = conn.prepareStatement(find_user_by_id);
             preparedStatement.setInt(1, id);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                int iduser = Integer.parseInt(rs.getString("iduser"));
+                String name = rs.getString("name");
+                String gmail = rs.getString("gmail");
+                int idaccount = Integer.parseInt(rs.getString("idaccount"));
+                int idrole = Integer.parseInt(rs.getString("idrole"));
+                return new User(iduser, name, gmail, idaccount, idrole);
+            }
+        } catch (Exception e) {
+
+        }
+        return null;
+    }
+
+    public User getUserByIdaccount(int IdAccount) {
+        try {
+            PreparedStatement preparedStatement = conn.prepareStatement(get_user_by_idaccount);
+            preparedStatement.setInt(1, IdAccount);
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
                 int iduser = Integer.parseInt(rs.getString("iduser"));
@@ -61,4 +81,5 @@ public class UserDAO {
             e.printStackTrace();
         }
     }
+
 }

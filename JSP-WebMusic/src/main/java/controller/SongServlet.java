@@ -1,6 +1,8 @@
 package controller;
 
+import model.bean.User;
 import model.bo.SongBO;
+import model.bo.UserBO;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,61 +14,42 @@ import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 
-@WebServlet(name = "SongServlet", value = "/SongServlet")
+@WebServlet("/SongServlet1")
 public class SongServlet extends HttpServlet {
     private SongBO songBO = new SongBO();
+    private UserBO userBO = new UserBO();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String action = request.getParameter("action");
-        if (action == null) {
-            action = "";
-        }
-        try {
-            switch (action) {
-                case "create":
-                    createSongForm(request, response);
-                    break;
-                case "update":
-
-                    break;
-                case "delete":
-
-                    break;
-                case "search":
-
-                    break;
-                default:
-                    break;
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+        System.out.println("VAo");
+        User user = userBO.getUserByIdaccount(1);
+        System.out.println(user.getName());
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws
             ServletException, IOException {
-        String action = request.getParameter("action");
-        if (action == null) {
-            action = "";
-        }
-        switch (action) {
-            case "create":
-
-                break;
-            case "update":
-
-                break;
-            case "delete":
-
-                break;
-            case "search":
-
-                break;
-            default:
-                break;
-        }
+        System.out.println("VAo post");
+//        String action = request.getParameter("action");
+//        if (action == null) {
+//            action = "";
+//        }
+//        switch (action) {
+//            case "create":
+//
+//                break;
+//            case "update":
+//
+//                break;
+//            case "delete":
+//
+//                break;
+//            case "search":
+//
+//                break;
+//            default:
+//                break;
+//        }
     }
 
     private void createSongForm(HttpServletRequest request, HttpServletResponse response) throws
