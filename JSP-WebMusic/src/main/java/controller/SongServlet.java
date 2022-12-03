@@ -1,6 +1,7 @@
 package controller;
 
 import model.bean.User;
+import model.bo.PlaylistBO;
 import model.bo.SongBO;
 import model.bo.UserBO;
 
@@ -77,8 +78,15 @@ public class SongServlet extends HttpServlet {
             ServletException, IOException, SQLException {
         HttpSession session = request.getSession();
         SongBO songBO = new SongBO();
+        PlaylistBO playlistBO = new PlaylistBO();
 
-        session.setAttribute("songNow",  songBO.getSongById(1));
+        String idPLaylistNow = (String) session.getAttribute("idPlaylistNow");
+
+        String idSongNow = request.getParameter("idSongNow");
+        session.setAttribute("idSongNow",idSongNow);
+
+        session.setAttribute("songNow",  songBO.getSongById(Integer.parseInt(idSongNow)));
+        session.setAttribute("playlistNow", playlistBO.getPlaylistByID(idPLaylistNow));
 
         response.sendRedirect("/detail-page.jsp");
     }

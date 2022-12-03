@@ -185,118 +185,54 @@
                             </div>
                         </div>
                         <ul class="list-song">
+                            <% ArrayList<Song> playlistSong = (ArrayList<Song>) session.getAttribute("playlistNow");
+                                for(int i = 0;i < playlistSong.size(); i++){
+                            %>
                             <li class="list-song-item">
-                                <a href="./Media/MUSIC/11.3107 4 - Wn x Erik ft Nâu/3107 4 - Wn x Erik ft.mp3">
-                                    <div class="list-song-item-img-container">
+                                <a
+
+                                        href="SongServlet1?action=detailPage&&idSongNow=<%=playlistSong.get(i).getIdSong()%>"
+                                        class="general-playlist-link-song"
+                                >
+                                    <div
+                                            class="list-song-item-img-container"
+                                    >
                                         <div class="overplay-song">
                                             <i
-                                                class="fa-regular fa-circle-play icon-play-playlist"
+                                                    class="fa-regular fa-circle-play icon-play-playlist"
                                             ></i>
                                             <p class="home-play-music-text">
                                                 Play music
                                             </p>
                                         </div>
                                         <img
-                                            src="../Media/background-image.avif"
-                                            alt=""
-                                            class="general-playlist-img"
+
+                                                src="<%=playlistSong.get(i).getTarget()%>"
+                                                alt=""
+                                                class="general-playlist-img"
                                         />
                                     </div>
                                     <div class="list-song-item-info">
-                                        <h2 class="list-song-item-title">
-                                            Song 1
+                                        <h2
+                                                class="list-song-item-title"
+                                        >
+                                            <%=playlistSong.get(i).getTenBaiHat()%>
                                         </h2>
-                                        <p class="list-song-item-author">
-                                            Author 1
+                                        <p
+                                                class="list-song-item-author"
+                                        >
+                                            <%=playlistSong.get(i).getCaSi()%>
                                         </p>
-                                        <p class="list-song-item-time">5:00</p>
+                                        <p
+                                                class="list-song-item-time"
+                                        >
+                                            <%=playlistSong.get(i).getThoiGian()%>
+                                        </p>
                                     </div>
                                 </a>
+
                             </li>
-                            <li class="list-song-item">
-                                <a href="./detail-page.jsp">
-                                    <div class="list-song-item-img-container">
-                                        <div class="overplay-song">
-                                            <i
-                                                class="fa-regular fa-circle-play icon-play-playlist"
-                                            ></i>
-                                            <p class="home-play-music-text">
-                                                Play music
-                                            </p>
-                                        </div>
-                                        <img
-                                            src="../Media/background-image.avif"
-                                            alt=""
-                                            class="general-playlist-img"
-                                        />
-                                    </div>
-                                    <div class="list-song-item-info">
-                                        <h2 class="list-song-item-title">
-                                            Song 1
-                                        </h2>
-                                        <p class="list-song-item-author">
-                                            Author 1
-                                        </p>
-                                        <p class="list-song-item-time">5:00</p>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="list-song-item">
-                                <a href="./detail-page.jsp">
-                                    <div class="list-song-item-img-container">
-                                        <div class="overplay-song">
-                                            <i
-                                                class="fa-regular fa-circle-play icon-play-playlist"
-                                            ></i>
-                                            <p class="home-play-music-text">
-                                                Play music
-                                            </p>
-                                        </div>
-                                        <img
-                                            src="../Media/background-image.avif"
-                                            alt=""
-                                            class="general-playlist-img"
-                                        />
-                                    </div>
-                                    <div class="list-song-item-info">
-                                        <h2 class="list-song-item-title">
-                                            Song 1
-                                        </h2>
-                                        <p class="list-song-item-author">
-                                            Author 1
-                                        </p>
-                                        <p class="list-song-item-time">5:00</p>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="list-song-item">
-                                <a href="./detail-page.jsp">
-                                    <div class="list-song-item-img-container">
-                                        <div class="overplay-song">
-                                            <i
-                                                class="fa-regular fa-circle-play icon-play-playlist"
-                                            ></i>
-                                            <p class="home-play-music-text">
-                                                Play music
-                                            </p>
-                                        </div>
-                                        <img
-                                            src="../Media/background-image.avif"
-                                            alt=""
-                                            class="general-playlist-img"
-                                        />
-                                    </div>
-                                    <div class="list-song-item-info">
-                                        <h2 class="list-song-item-title">
-                                            Song 1
-                                        </h2>
-                                        <p class="list-song-item-author">
-                                            Author 1
-                                        </p>
-                                        <p class="list-song-item-time">5:00</p>
-                                    </div>
-                                </a>
-                            </li>
+                            <%  }%>
                         </ul>
                     </div>
                 </div>
