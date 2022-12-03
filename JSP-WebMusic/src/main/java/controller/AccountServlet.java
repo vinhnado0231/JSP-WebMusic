@@ -54,11 +54,6 @@ public class AccountServlet extends HttpServlet {
             session.setAttribute("changePage", "home");
             response.sendRedirect("/");
         }
-        else if (request.getParameter("action").equals("generalPlaylist")) {
-            session.setAttribute("changePage", "generalPlaylist");
-            response.sendRedirect("/general-playlist.jsp");
-        }
-
     }
 }
 

@@ -27,7 +27,6 @@ charset=UTF-8" pageEncoding="UTF-8" %>
                     <img src="./Media/logo.png" class="logo-app" />
                 </a>
                 <nav class="nav-app">
-
                     <a
                         href="AccountServlet?action=/"
                         class= "nav-item <%try {if (session.getAttribute("changePage").equals("home")) {%>
@@ -44,7 +43,6 @@ charset=UTF-8" pageEncoding="UTF-8" %>
                                 active-nav
                             <%}} catch (Exception e) {}%> "
                     >
-
                         General playlist
                     </a>
                     <%try {if ((boolean) session.getAttribute("checkLogin")) {%>
