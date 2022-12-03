@@ -113,20 +113,15 @@ public class PlaylistServlet extends HttpServlet {
             RequestDispatcher rd = getServletContext().getRequestDispatcher("/your-playlist.jsp");
             rd.forward(request, response);
         } else if (request.getParameter("action").equals("detailPage")) {
-
             HttpSession session = request.getSession();
             SongBO songBO = new SongBO();
-
-            String idPLaylistNow = Integer.toString(((int) session.getAttribute("idPlaylistNow")));
-
+            int idPLaylistNow = (int)session.getAttribute("idPlaylistNow");
             String idSongNow = request.getParameter("idSongNow");
             session.setAttribute("idSongNow", idSongNow);
-
-            session.setAttribute("songNow", songBO.getSongById(Integer.parseInt(idSongNow)));
-            session.setAttribute("playlistNow", playlistBO.getPlaylistByID(idPLaylistNow));
-            RequestDispatcher rd = getServletContext().getRequestDispatcher("/detail-page.jsp");
-            rd.forward(request, response);
-//            response.sendRedirect("/detail-page.jsp");
+            session.setAttribute("songNow",  songBO.getSongById(Integer.parseInt(idSongNow)));
+            ArrayList<Song> list = playlistBO.getAllSongByIDList(idPLaylistNow);
+            session.setAttribute("playlistDetailNow", list);
+            response.sendRedirect("/detail-page.jsp");
         } else if (request.getParameter("action").equals("addPlaylist")) {
             RequestDispatcher rd = getServletContext().getRequestDispatcher("/add-form.jsp");
             rd.forward(request, response);
@@ -185,32 +180,32 @@ public class PlaylistServlet extends HttpServlet {
 //        RequestDispatcher rd = getServletContext().getRequestDispatcher("/detail-list.jsp");
 //        rd.forward(request, response);
 //    }
-    private static String getValue(Part part) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(part.getInputStream(), "UTF-8"));
-        StringBuilder value = new StringBuilder();
-        char[] buffer = new char[1024];
-        for (int length = 0; (length = reader.read(buffer)) > 0; ) {
-            value.append(buffer, 0, length);
-        }
-        return value.toString();
-    }
-
-    private String extractFileName(Part part) {
-        String contentDisp = part.getHeader("content-disposition");
-        String[] items = contentDisp.split(";");
-        for (String s : items) {
-            if (s.trim().startsWith("filename")) {
-                return s.substring(s.indexOf("=") + 2, s.length() - 1);
-            }
-        }
-        return "";
-    }
-
-    public File getFolderUpload() {
-        File folderUpload = new File("C:/Users/vinhn/Máy tính/JSP/JSP-WebMusic/JSP-WebMusic/src/main/webapp/Media/PlaylistIMG");
-        if (!folderUpload.exists()) {
-            folderUpload.mkdirs();
-        }
-        return folderUpload;
-    }
+//    private static String getValue(Part part) throws IOException {
+//        BufferedReader reader = new BufferedReader(new InputStreamReader(part.getInputStream(), "UTF-8"));
+//        StringBuilder value = new StringBuilder();
+//        char[] buffer = new char[1024];
+//        for (int length = 0; (length = reader.read(buffer)) > 0; ) {
+//            value.append(buffer, 0, length);
+//        }
+//        return value.toString();
+//    }
+//
+//    private String extractFileName(Part part) {
+//        String contentDisp = part.getHeader("content-disposition");
+//        String[] items = contentDisp.split(";");
+//        for (String s : items) {
+//            if (s.trim().startsWith("filename")) {
+//                return s.substring(s.indexOf("=") + 2, s.length() - 1);
+//            }
+//        }
+//        return "";
+//    }
+//
+//    public File getFolderUpload() {
+//        File folderUpload = new File("C:/Users/vinhn/Máy tính/JSP/JSP-WebMusic/JSP-WebMusic/src/main/webapp/Media/PlaylistIMG");
+//        if (!folderUpload.exists()) {
+//            folderUpload.mkdirs();
+//        }
+//        return folderUpload;
+//    }
 }

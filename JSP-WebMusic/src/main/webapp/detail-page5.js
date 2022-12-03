@@ -49,46 +49,46 @@ const music_list = [
         music: "./Media/MUSIC/4.Hello World - Alan Walker, Torine/Alan Walker & Torine - Hello World (Official Music Video).mp3",
     },
     {
-        img: "./Media/MUSIC/5.Buồn Không Thể Buông - Trung Quân Idol, MiiNa/5.png",
-        name: "Buồn Không Thể Buông",
-        artist: "Trung Quân Idol",
-        music: "./Media/MUSIC/5.Buồn Không Thể Buông - Trung Quân Idol, MiiNa/BUỒN không thể BUÔNG - Trung Quân x MiiNa x RIN9 (DREAMeR) - OFFICIAL MUSIC VIDEO.mp3",
+        img: "./Media/MUSIC/5.BuonKhongTheBuong/5.png",
+        name: "Buon Khong The Buong",
+        artist: "TrungQuan Idol",
+        music: "./Media/MUSIC/5.BuonKhongTheBuong/BuonKhongTheBuong.mp3",
     },
     {
-        img: "./Media/MUSIC/6.Sau Lưng Anh Có Ai Kìa (Winter Version) - Thiều Bảo Trâm/6.png",
-        name: "Sau Lưng Anh Có Ai Kìa (Winter Version)",
-        artist: "Thiều Bảo Trâm",
-        music: "./Media/MUSIC/6.Sau Lưng Anh Có Ai Kìa (Winter Version) - Thiều Bảo Trâm/SAU LƯNG ANH CÓ AI KÌA - THIỀU BẢO TRÂM x NGUYỄN PHÚC THIỆN - Official MV.mp3",
+        img: "./Media/MUSIC/6.SauLungCoAiKia/6.png",
+        name: "Sau lung co ai kia (Winter Version)",
+        artist: "Thieu Bao Tram",
+        music: "./Media/MUSIC/6.SauLungCoAiKia/SauLungCoAiKia.mp3",
     },
     {
-        img: "./Media/MUSIC/7.Kỳ Vọng Sai Lầm - Tăng Phúc, Nguyễn Đình Vũ, Yuno Bigboi/7.png",
-        name: "Kỳ Vọng Sai Lầm",
-        artist: "Tăng Phúc, Nguyễn Đình Vũ, Yuno Bigboi",
-        music: "./Media/MUSIC/7.Kỳ Vọng Sai Lầm - Tăng Phúc, Nguyễn Đình Vũ, Yuno Bigboi/OFFICIAL MV - KỲ VỌNG SAI LẦM - NGUYỄN ĐÌNH VŨ x TĂNG PHÚC x YUNO BIGBOI.mp3",
+        img: "./Media/MUSIC/7.KyVongSaiLam/7.png",
+        name: "Ky Vong Sai Lam",
+        artist: "Tang Phuc, Nguyen Dinh Vu, Yuno Bigboi",
+        music: "./Media/MUSIC/7.KyVongSaiLam/KyVongSaiLam.mp3",
     },
     {
-        img: "./Media/MUSIC/8. Lặng Yên (Lặng Yên Dưới Vực Sâu OST) - Bùi Anh Tuấn, Ái Phương/8.png",
-        name: "Lặng Yên (Lặng Yên Dưới Vực Sâu OST)",
-        artist: "Bùi Anh Tuấn, Ái Phương",
-        music: "./Media/MUSIC/8. Lặng Yên (Lặng Yên Dưới Vực Sâu OST) - Bùi Anh Tuấn, Ái Phương/Lặng Yên - Bùi Anh Tuấn ft Ái Phương (Lyrics).mp3",
+        img: "./Media/MUSIC/8.LangYen/8.png",
+        name: "Lang Yen (Lang Yen Duoi Vuc Sau OST)",
+        artist: "Bui Anh Tuan, Ai Phuong",
+        music: "./Media/MUSIC/8.LangYen/LangYen.mp3",
     },
     {
-        img: "./Media/MUSIC/9.Suýt Nữa Thì (Chuyến Đi Của Thanh Xuân OST) - Andiez/9.png",
-        name: "Suýt Nữa Thì (Chuyến Đi Của Thanh Xuân OST)",
+        img: "./Media/MUSIC/9.SuytNuaThi - Andiez/9.png",
+        name: "Suyt Nua Thi (Chuyen Di Cua Thanh Xuan OST)",
         artist: "Andiez",
-        music: "./Media/MUSIC/9.Suýt Nữa Thì (Chuyến Đi Của Thanh Xuân OST) - Andiez/SUÝT NỮA THÌ - OFFICIAL OST - CHUYẾN ĐI CỦA THANH XUÂN - ANDIEZ x BITI'S HUNTER - LYRIC VIDEO.mp3",
+        music: "./Media/MUSIC/9.SuytNuaThi/SuytNuaThi.mp3",
     },
     {
-        img: "./Media/MUSIC/10.Nhẹ (Nhắm Mắt Thấy Mùa Hè OST) - Uyên Pím (Bệt Band)/10.png",
-        name: "Nhẹ (Nhắm Mắt Thấy Mùa Hè OST)",
-        artist: "Uyên Pím (Bệt Band)",
-        music: "./Media/MUSIC/10.Nhẹ (Nhắm Mắt Thấy Mùa Hè OST) - Uyên Pím (Bệt Band)/NHẮM MẮT THẤY MÙA HÈ - MV LYRIC - NHẸ - KC 25.05.2018.mp3",
+        img: "./Media/MUSIC/10.Nhe/10.png",
+        name: "Nhe (Nham Mat Thay Mua He OST)",
+        artist: "Uyen Bim (Bet Band)",
+        music: "./Media/MUSIC/10.Nhe/Nhe.mp3",
     },
     {
-        img: "./Media/MUSIC/11.3107 4 - Wn x Erik ft Nâu/11.png",
+        img: "./Media/MUSIC/11.3107/11.png",
         name: "3107 4",
-        artist: " Wn x Erik ft Nâu",
-        music: "./Media/MUSIC/11.3107 4 - Wn x Erik ft Nâu/3107 4 - Wn x Erik ft.mp3",
+        artist: " Wn x Erik ft Nau",
+        music: "./Media/MUSIC/11.3107 4 - Wn x Erik ft Nâu/3107.mp3",
     },
 ];
 
@@ -104,8 +104,6 @@ function loadTrack(track_index) {
     trackArtImg.src = music_list[track_index].img;
     track_name.textContent = music_list[track_index].name;
     track_artist.textContent = music_list[track_index].artist;
-    now_playing.textContent =
-        "Playing music " + (track_index + 1) + " of " + music_list.length;
 
     updateTimer = setInterval(setUpdate, 1000);
 
@@ -172,9 +170,11 @@ function prevTrack() {
 function seekTo() {
     let seekto = curr_track.duration * (seek_slider.value / 100);
     curr_track.currentTime = seekto;
+    console.log(seekto);
 }
 function setVolume() {
     curr_track.volume = volume_slider.value / 100;
+    console.log(curr_track.volume);
 }
 function setUpdate() {
     let seekPosition = 0;
