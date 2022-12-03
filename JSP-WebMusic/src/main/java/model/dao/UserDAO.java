@@ -28,7 +28,8 @@ public class UserDAO {
                 String gmail = rs.getString("gmail");
                 int idaccount = Integer.parseInt(rs.getString("idaccount"));
                 int idrole = Integer.parseInt(rs.getString("idrole"));
-                return new User(iduser, name, gmail, idaccount, idrole);
+                String avt = rs.getString("avt");
+                return new User(iduser, name, gmail, idaccount, idrole, avt);
             }
         } catch (Exception e) {
 
@@ -47,7 +48,8 @@ public class UserDAO {
                 String gmail = rs.getString("gmail");
                 int idaccount = Integer.parseInt(rs.getString("idaccount"));
                 int idrole = Integer.parseInt(rs.getString("idrole"));
-                return new User(iduser, name, gmail, idaccount, idrole);
+                String avt = rs.getString("avt");
+                return new User(iduser, name, gmail, idaccount, idrole, avt);
             }
         } catch (Exception e) {
 

@@ -6,16 +6,18 @@ public class User {
     private String gmail;
     private int idaccount;
     private int idrole;
+    private String avt;
 
     public User() {
     }
 
-    public User(int iduser, String name, String gmail, int idaccount, int idrole) {
+    public User(int iduser, String name, String gmail, int idaccount, int idrole, String avt) {
         this.iduser = iduser;
         this.name = name;
         this.gmail = gmail;
         this.idaccount = idaccount;
         this.idrole = idrole;
+        this.avt = avt;
     }
 
     public int getIduser() {
@@ -56,5 +58,13 @@ public class User {
 
     public void setIdrole(int idrole) {
         this.idrole = idrole;
+    }
+
+    public String getAvt() {
+        return avt;
+    }
+
+    public void setAvt(String avt) {
+        this.avt = avt;
     }
 }
