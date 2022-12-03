@@ -17,12 +17,31 @@ public class AccountDAO {
     private final String insert_new_account = "INSERT INTO `account` (`idaccount`, `username`, `password`) VALUES (NULL, ?, ?);";
     private final String change_password = "UPDATE `account` SET `password` = ? WHERE `account`.`username` = ?";
     private final String check_login = "select * from account where username = ? and password = ?";
+    private final String find_account_by_idaccount="select * from account where idaccount=?";
 
     public Account findAccountByUsername(String username) {
         Account account = null;
         try {
             PreparedStatement preparedStatement = conn.prepareStatement(search_account_by_username);
             preparedStatement.setString(1, username);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                int id = Integer.parseInt(rs.getString("idaccount"));
+                String username1 = rs.getString("username");
+                String password = rs.getString("password");
+                account = new Account(id, username1, password);
+                return account;
+            }
+        } catch (Exception e) {
+
+        }
+        return account;
+    }
+    public Account findAccountByIdAccount(int idaccount) {
+        Account account = null;
+        try {
+            PreparedStatement preparedStatement = conn.prepareStatement(find_account_by_idaccount);
+            preparedStatement.setInt(1, idaccount);
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
                 int id = Integer.parseInt(rs.getString("idaccount"));

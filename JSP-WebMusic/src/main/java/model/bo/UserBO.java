@@ -18,5 +18,8 @@ public class UserBO {
     public void updateUser(User user) {
         userDAO.updateUser(user);
     }
+    public User getUserByIdaccount(int IdAccount){
+        return userDAO.getUserByIdaccount(IdAccount);
+    }
 }
 

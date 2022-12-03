@@ -7,6 +7,7 @@ charset=UTF-8" pageEncoding="UTF-8" %>
         <title>Web music</title>
         <link rel="stylesheet" href="./index.css" />
         <link rel="stylesheet" href="./home.css" />
+        <link rel="stylesheet" href="./user-avt.css" />
         <link
             rel="stylesheet"
             href="./Media/fontawesome-free-6.2.1-web/css/all.min.css"
@@ -27,15 +28,37 @@ charset=UTF-8" pageEncoding="UTF-8" %>
                 </div>
                 <nav class="nav-app">
                     <a href="./index.jsp" class="nav-item active-nav"> Home </a>
+<<<<<<< HEAD
                     <a href="PlaylistServlet?action=generalPlaylist" class="nav-item">
+=======
+                    <a href="./general-playlist.jsp" class="nav-item">
+>>>>>>> bedc4e128c5e1930a67392b8c7cf70b7d6d4caf3
                         General playlist
                     </a>
                     <a href="./detail-page.jsp" class="nav-item">
                         Your playlist
                     </a>
-                    <a href="./loginform.jsp" class="login-button">
+                    <%try {if (!(boolean) session.getAttribute("checkLogin"))
+                    {%>
+                    <a href="AccountServlet?loginNow=1" class="login-button">
                         Login now
                     </a>
+                    <%} else {%>
+                    <div class="user-avt-container">
+                        <a href="AccountServlet?action=logout" class="log-out-container" >
+                            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                        </a>
+                        <img
+                            src="./Media/avt/logo.png"
+                            alt=""
+                            class="user-avt-img"
+                        />
+                    </div>
+                    <%}} catch (Exception e) {%>
+                    <a href="AccountServlet?action=loginForm" class="login-button">
+                        Login now
+                    </a>
+                    <%}%>
                 </nav>
             </header>
             <div class="app-body">

@@ -45,18 +45,6 @@
                         />
                     </div>
 
-                    <div class="add-form-input-main-info">
-                        <div class="add-form-input-container">
-                            <h2 class="add-form-input-title">File song</h2>
-                            <input type="file" class="add-form-input-file" />
-                        </div>
-
-                        <div class="add-form-input-container">
-                            <h2 class="add-form-input-title">File image</h2>
-                            <input type="file" class="add-form-input-file" />
-                        </div>
-                    </div>
-
                     <div class="add-form-input-container">
                         <h2 class="add-form-input-title">Lyrics</h2>
                         <textarea
