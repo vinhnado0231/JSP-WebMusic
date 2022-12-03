@@ -80,10 +80,8 @@ public class PlaylistServlet extends HttpServlet {
             session.setAttribute("yourPlaylist", yourPlaylist);
             RequestDispatcher rd = getServletContext().getRequestDispatcher("/your-playlist.jsp");
             rd.forward(request, response);
-        }else if(request.getParameter("action").equals("etailPage")){
-            String idSongNow=request.getParameter("idSongNow");
-            HttpSession session=request.getSession();
-            session.setAttribute("idSongNow",idSongNow);
+        }else if(request.getParameter("action").equals("detailPage")){
+
             RequestDispatcher rd = getServletContext().getRequestDispatcher("/detail-page.jsp");
             rd.forward(request, response);
         }
