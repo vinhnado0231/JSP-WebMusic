@@ -45,6 +45,7 @@ charset=UTF-8" pageEncoding="UTF-8" %>
             >
                 General playlist
             </a>
+
             <%try {if ((boolean) session.getAttribute("checkLogin")) {%>
             <a href="./detail-page.jsp" class="nav-item">
                 Your playlist
