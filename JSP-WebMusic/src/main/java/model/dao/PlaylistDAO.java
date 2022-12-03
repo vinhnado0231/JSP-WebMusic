@@ -21,12 +21,13 @@ public class PlaylistDAO {
             Connection conn = connectDB.getAConnect();
             Statement stmt = conn.createStatement();
             String sql = "select * from playlist";
-            ResultSet rs = stmt.executeQuery(sql);
-            while (rs.next()) {
-                int id = Integer.parseInt(rs.getString("idlist"));
-                int iduser = Integer.parseInt(rs.getString("iduser"));
-                String namelist = rs.getString("namelist");
-                Playlist list = new Playlist(id, namelist, iduser);
+            ResultSet rs=stmt.executeQuery(sql);
+            while(rs.next()){
+                int id=Integer.parseInt(rs.getString("idlist"));
+                int iduser=Integer.parseInt(rs.getString("iduser"));
+                String namelist=rs.getString("namelist");
+                String target=rs.getString("target");
+                Playlist list=new Playlist(id,namelist,iduser,target);
                 listSongs.add(list);
             }
         } catch (Exception e) {
