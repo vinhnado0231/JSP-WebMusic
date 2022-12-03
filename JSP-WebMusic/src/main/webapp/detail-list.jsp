@@ -101,8 +101,8 @@
             %>
             <li class="general-playlist-song">
               <a
-
-                      href="SongServlet?action=detailPage&&idSongNow=<%=playlistSong.get(i).getIdSong()%>"
+                        href="PlaylistServlet?action=detailPage&&idSongNow=<%=playlistSong.get(i).getIdSong()%>"
+<%--                      href="PlaylistServlet?action=detailPage&&idSongNow=<%=playlistSong.get(i).getIdSong()%>"--%>
                       class="general-playlist-link-song"
               >
                 <div
@@ -145,7 +145,7 @@
                       href="./edit-form.jsp"
                       class="button-song"
               >
-                Edit
+                Detail
               </a>
             </li>
             <%  }%>

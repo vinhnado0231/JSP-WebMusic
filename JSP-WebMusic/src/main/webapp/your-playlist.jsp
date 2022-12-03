@@ -5,7 +5,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-  <link rel="stylesheet" href="./general-playlist2.css" />
+  <link rel="stylesheet" href="./general-playlist3.css" />
   <link rel="stylesheet" href="./index.css" />
   <link rel="stylesheet" href="./user-avt.css" />
 
@@ -102,7 +102,7 @@
 
             <li class="general-playlist-add-song">
               <a
-                      href="./add-form.jsp"
+                      href="PlaylistServlet?action=addPlaylist"
                       class="add-song-container"
               >
                 <div class="overplay-add-song">
@@ -160,10 +160,10 @@
                 </div>
               </a>
               <a
-                      href="PlaylistServlet?action=detailList&&detailList=<%=playlist.get(i).getIdList()%>"
+                      href="PlaylistServlet?action=editDetailList&&idDetailList=<%=playlist.get(i).getIdList()%>"
                       class="button-song"
               >
-                Detail
+                Edit
               </a>
             </li>
             <%  }}%>
