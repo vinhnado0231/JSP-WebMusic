@@ -36,4 +36,10 @@ public class PlaylistBO {
     public void removeSongFromPlayList(int idlist, int idsong) {
         playlistDAO.removeSongFromPlayList(idlist, idsong);
     }
+    public Playlist getPlaylistByID(String id){
+        return playlistDAO.getPlaylistByID(id);
+    }
+    public ArrayList<Playlist> getPlayListofUser(int iduser){
+        return playlistDAO.getPlayListofUser(iduser);
+    }
 }
