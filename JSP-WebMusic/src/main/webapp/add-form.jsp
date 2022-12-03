@@ -6,7 +6,7 @@
     </head>
     <body>
         <div class="add-form-container">
-            <form action="PlaylistServlet?action=addPlaylist" class="add-form">
+            <form action="PlaylistServlet?action=createNewPlaylist" class="add-form" method="post">
                 <h2 class="add-form-title">Create playlist</h2>
 
                 <div class="add-form-wrapper-image">
@@ -25,12 +25,8 @@
                             type="text"
                             class="add-form-input"
                             placeholder="Name"
+                            name = "nameList"
                         />
-                    </div>
-
-                    <div class="add-form-input-container">
-                        <h2 class="add-form-input-title">Image</h2>
-                        <input type="file" class="add-form-input-file" />
                     </div>
                 </div>
                 <div class="add-form-footer">
