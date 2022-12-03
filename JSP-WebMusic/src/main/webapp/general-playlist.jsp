@@ -4,7 +4,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
     <head>
-        <link rel="stylesheet" href="./general-playlist3.css" />
+        <link rel="stylesheet" href="general-playlist5.css" />
         <link rel="stylesheet" href="./index.css" />
         <link rel="stylesheet" href="./user-avt.css" />
 
@@ -39,7 +39,9 @@
                         General playlist
                     </a>
                     <%try {if ((boolean) session.getAttribute("checkLogin")) {%>
-                    <a href="PlaylistServlet?action=yourPlaylist" class="nav-item">
+                    <a href="PlaylistServlet?action=yourPlaylist" class="nav-item <%try {if (session.getAttribute("changePage").equals("yourPlaylist")) {%>
+                                active-nav
+                            <%}} catch (Exception e) {}%>">
                         Your playlist
                     </a>
                     <%}} catch (Exception e) {%> <%}%>
