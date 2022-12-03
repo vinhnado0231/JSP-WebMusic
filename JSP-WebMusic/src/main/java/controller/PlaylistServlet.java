@@ -21,12 +21,12 @@ public class PlaylistServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PlaylistBO playlistBO = new PlaylistBO();
 
-       if(request.getAttribute("generalPlaylist")!=null){
-           ArrayList<Song> playlistSong =playlistBO.getAllSongByIDList(0);
-           request.setAttribute("generalPlaylistSong",playlistSong);
-           RequestDispatcher rd=getServletContext().getRequestDispatcher("/general-playlist.jsp");
-           rd.forward(request,response);
-       }
+        if(request.getAttribute("generalPlaylist")!=null){
+            ArrayList<Song> playlistSong =playlistBO.getAllSongByIDList(0);
+            request.setAttribute("generalPlaylistSong",playlistSong);
+            RequestDispatcher rd=getServletContext().getRequestDispatcher("/general-playlist.jsp");
+            rd.forward(request,response);
+        }
 //        ArrayList<Song> playlistSong =playlistBO.getAllSongByIDList(0);
 //        request.setAttribute("generalPlaylistSong",playlistSong);
 //        RequestDispatcher rd=getServletContext().getRequestDispatcher("/general-playlist.jsp");
