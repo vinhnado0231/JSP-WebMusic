@@ -110,6 +110,7 @@ textarea {
 
 .container-logo {
     width: 150px;
+    display: block;
 }
 
 .logo-app {

@@ -24,8 +24,11 @@ public class PlaylistServlet extends HttpServlet {
 
 
         if (request.getParameter("action").equals("generalPlaylist")) {
-            ArrayList<Playlist> allPlaylist = playlistBO.getAllPlaylist();
             HttpSession session = request.getSession();
+
+            session.setAttribute("changePage", "generalPlaylist");
+
+            ArrayList<Playlist> allPlaylist = playlistBO.getAllPlaylist();
             session.setAttribute("allPlaylist", allPlaylist);
             RequestDispatcher rd = getServletContext().getRequestDispatcher("/general-playlist.jsp");
             rd.forward(request, response);
