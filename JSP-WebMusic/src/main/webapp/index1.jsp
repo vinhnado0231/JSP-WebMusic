@@ -8,6 +8,9 @@ charset=UTF-8" pageEncoding="UTF-8" %>
     <link rel="stylesheet" href="./index.css" />
     <link rel="stylesheet" href="./home.css" />
     <link rel="stylesheet" href="./user-avt.css" />
+    <link rel="shortcut icon" href="./Media/AVATAR/AVT4.png" type="image/png">
+    
+
     <link
             rel="stylesheet"
             href="./Media/fontawesome-free-6.2.1-web/css/all.min.css"
