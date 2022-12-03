@@ -38,7 +38,7 @@ charset=UTF-8" pageEncoding="UTF-8" %>
                 Home
             </a>
             <a
-                    href="AccountServlet?action=generalPlaylist"
+                    href="PlaylistServlet?action=generalPlaylist"
                     class= "nav-item <%try {if (session.getAttribute("changePage").equals("generalPlaylist")) {%>
                                 active-nav
                             <%}} catch (Exception e) {}%> "
@@ -102,7 +102,7 @@ charset=UTF-8" pageEncoding="UTF-8" %>
                 <h1 class="title title-home">Web music for</h1>
                 <h2 class="title title-primary">Everybody</h2>
                 <a
-                        href="./general-playlist.jsp"
+                        href="PlaylistServlet?action=generalPlaylist"
                         class="home-play-music-container"
                 >
                     <i

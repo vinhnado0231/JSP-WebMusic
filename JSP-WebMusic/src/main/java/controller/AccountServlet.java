@@ -23,7 +23,6 @@ public class AccountServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         HttpSession session = request.getSession();
-        session.setAttribute("checkLogin", true);
 
         session.setAttribute("changePage", "home");
 
@@ -54,11 +53,6 @@ public class AccountServlet extends HttpServlet {
             session.setAttribute("changePage", "home");
             response.sendRedirect("/");
         }
-        else if (request.getParameter("action").equals("generalPlaylist")) {
-            session.setAttribute("changePage", "generalPlaylist");
-            response.sendRedirect("/general-playlist.jsp");
-        }
-
     }
 }
 
