@@ -6,7 +6,9 @@
     </head>
     <body>
         <div class="add-form-container">
-            <form action="" class="add-form">
+            <form action="PlaylistServlet?action=addPlaylist" class="add-form">
+                <h2 class="add-form-title">Create playlist</h2>
+
                 <div class="add-form-wrapper-image">
                     <div class="add-form-container-logo">
                         <img
@@ -17,46 +19,22 @@
                     </div>
                 </div>
                 <div class="add-form-body">
-                    <div class="add-form-input-main-info">
-                        <div class="add-form-input-container">
-                            <h2 class="add-form-input-title">Song</h2>
-                            <input
-                                type="text"
-                                class="add-form-input"
-                                placeholder="Song"
-                            />
-                        </div>
-
-                        <div class="add-form-input-container">
-                            <h2 class="add-form-input-title">Author</h2>
-                            <input
-                                type="text"
-                                class="add-form-input"
-                                placeholder="Author"
-                            />
-                        </div>
-                    </div>
                     <div class="add-form-input-container">
-                        <h2 class="add-form-input-title">Singer</h2>
+                        <h2 class="add-form-input-title">Name</h2>
                         <input
                             type="text"
                             class="add-form-input"
-                            placeholder="Singer"
+                            placeholder="Name"
                         />
                     </div>
 
                     <div class="add-form-input-container">
-                        <h2 class="add-form-input-title">Lyrics</h2>
-                        <textarea
-                            type="text"
-                            class="add-form-input"
-                            placeholder="Lyrics"
-                            aria-setsize="off"
-                        ></textarea>
+                        <h2 class="add-form-input-title">Image</h2>
+                        <input type="file" class="add-form-input-file" />
                     </div>
                 </div>
                 <div class="add-form-footer">
-                    <button class="add-form-submit">Create</button>
+                    <button class="add-form-submit">Create playlist</button>
                 </div>
             </form>
         </div>
