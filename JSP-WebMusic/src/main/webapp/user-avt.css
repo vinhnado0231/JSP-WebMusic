@@ -1,0 +1,31 @@
+.user-avt-container  {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    box-shadow: 1px 0 2px rgb(246, 246, 246);
+    border-radius: 9999px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.user-avt-container:hover .log-out-container{
+    opacity: 1;
+}
+
+.user-avt-img {
+    width: 100%; object-fit: cover
+}
+
+.log-out-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0; 
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--black-transparent);
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+}
