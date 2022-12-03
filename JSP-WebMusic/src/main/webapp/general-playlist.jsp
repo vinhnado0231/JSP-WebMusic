@@ -1,3 +1,5 @@
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="model.bean.Song" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
     <head>
@@ -55,6 +57,11 @@
                                         </div>
                                     </a>
                                 </li>
+                                <% ArrayList<Song> playlistSong = (ArrayList<Song>) request.getAttribute("generalPlaylistSong");
+                                        for(int i=0;i<playlistSong.size();i++){
+
+
+                                %>
                                 <li class="general-playlist-song">
                                     <a
                                         href="./detail-page.jsp"
@@ -72,7 +79,7 @@
                                                 </p>
                                             </div>
                                             <img
-                                                src="../Media/background-image.avif"
+                                                src="../Media/MUSIC/1.Ritual - Alan Walker/1.png"
                                                 alt=""
                                                 class="general-playlist-img"
                                             />
@@ -81,17 +88,17 @@
                                             <h2
                                                 class="general-playlist-song-title"
                                             >
-                                                Song 1
+                                                <%=playlistSong.get(i).getTenBaiHat()%>
                                             </h2>
                                             <p
                                                 class="general-playlist-song-author"
                                             >
-                                                Author 1
+                                                <%=playlistSong.get(i).getCaSi()%>
                                             </p>
                                             <p
                                                 class="general-playlist-song-time"
                                             >
-                                                5:00
+                                                <%=playlistSong.get(i).getThoiGian()%>
                                             </p>
                                         </div>
                                     </a>
@@ -102,382 +109,7 @@
                                         Edit
                                     </a>
                                 </li>
-                                <li class="general-playlist-song">
-                                    <a
-                                        href="./detail-page.jsp"
-                                        class="general-playlist-link-song"
-                                    >
-                                        <div
-                                            class="general-playlist-song-img-container"
-                                        >
-                                            <div class="overplay-song">
-                                                <i
-                                                    class="fa-regular fa-circle-play icon-play-playlist"
-                                                ></i>
-                                                <p class="home-play-music-text">
-                                                    Play music
-                                                </p>
-                                            </div>
-                                            <img
-                                                src="../Media/background-image.avif"
-                                                alt=""
-                                                class="general-playlist-img"
-                                            />
-                                        </div>
-                                        <div class="general-playlist-song-info">
-                                            <h2
-                                                class="general-playlist-song-title"
-                                            >
-                                                Song 1
-                                            </h2>
-                                            <p
-                                                class="general-playlist-song-author"
-                                            >
-                                                Author 1
-                                            </p>
-                                            <p
-                                                class="general-playlist-song-time"
-                                            >
-                                                5:00
-                                            </p>
-                                        </div>
-                                    </a>
-                                    <a
-                                        href="./edit-form.jsp"
-                                        class="button-song"
-                                    >
-                                        Edit
-                                    </a>
-                                </li>
-                                <li class="general-playlist-song">
-                                    <a
-                                        href="./detail-page.jsp"
-                                        class="general-playlist-link-song"
-                                    >
-                                        <div
-                                            class="general-playlist-song-img-container"
-                                        >
-                                            <div class="overplay-song">
-                                                <i
-                                                    class="fa-regular fa-circle-play icon-play-playlist"
-                                                ></i>
-                                                <p class="home-play-music-text">
-                                                    Play music
-                                                </p>
-                                            </div>
-                                            <img
-                                                src="../Media/background-image.avif"
-                                                alt=""
-                                                class="general-playlist-img"
-                                            />
-                                        </div>
-                                        <div class="general-playlist-song-info">
-                                            <h2
-                                                class="general-playlist-song-title"
-                                            >
-                                                Song 1
-                                            </h2>
-                                            <p
-                                                class="general-playlist-song-author"
-                                            >
-                                                Author 1
-                                            </p>
-                                            <p
-                                                class="general-playlist-song-time"
-                                            >
-                                                5:00
-                                            </p>
-                                        </div>
-                                    </a>
-                                    <a
-                                        href="./edit-form.jsp"
-                                        class="button-song"
-                                    >
-                                        Edit
-                                    </a>
-                                </li>
-                                <li class="general-playlist-song">
-                                    <a
-                                        href="./detail-page.jsp"
-                                        class="general-playlist-link-song"
-                                    >
-                                        <div
-                                            class="general-playlist-song-img-container"
-                                        >
-                                            <div class="overplay-song">
-                                                <i
-                                                    class="fa-regular fa-circle-play icon-play-playlist"
-                                                ></i>
-                                                <p class="home-play-music-text">
-                                                    Play music
-                                                </p>
-                                            </div>
-                                            <img
-                                                src="../Media/background-image.avif"
-                                                alt=""
-                                                class="general-playlist-img"
-                                            />
-                                        </div>
-                                        <div class="general-playlist-song-info">
-                                            <h2
-                                                class="general-playlist-song-title"
-                                            >
-                                                Song 1
-                                            </h2>
-                                            <p
-                                                class="general-playlist-song-author"
-                                            >
-                                                Author 1
-                                            </p>
-                                            <p
-                                                class="general-playlist-song-time"
-                                            >
-                                                5:00
-                                            </p>
-                                        </div>
-                                    </a>
-                                    <a
-                                        href="./edit-form.jsp"
-                                        class="button-song"
-                                    >
-                                        Edit
-                                    </a>
-                                </li>
-                                <li class="general-playlist-song">
-                                    <a
-                                        href="./detail-page.jsp"
-                                        class="general-playlist-link-song"
-                                    >
-                                        <div
-                                            class="general-playlist-song-img-container"
-                                        >
-                                            <div class="overplay-song">
-                                                <i
-                                                    class="fa-regular fa-circle-play icon-play-playlist"
-                                                ></i>
-                                                <p class="home-play-music-text">
-                                                    Play music
-                                                </p>
-                                            </div>
-                                            <img
-                                                src="../Media/background-image.avif"
-                                                alt=""
-                                                class="general-playlist-img"
-                                            />
-                                        </div>
-                                        <div class="general-playlist-song-info">
-                                            <h2
-                                                class="general-playlist-song-title"
-                                            >
-                                                Song 1
-                                            </h2>
-                                            <p
-                                                class="general-playlist-song-author"
-                                            >
-                                                Author 1
-                                            </p>
-                                            <p
-                                                class="general-playlist-song-time"
-                                            >
-                                                5:00
-                                            </p>
-                                        </div>
-                                    </a>
-                                    <a
-                                        href="./edit-form.jsp"
-                                        class="button-song"
-                                    >
-                                        Edit
-                                    </a>
-                                </li>
-                                <li class="general-playlist-song">
-                                    <a
-                                        href="./detail-page.jsp"
-                                        class="general-playlist-link-song"
-                                    >
-                                        <div
-                                            class="general-playlist-song-img-container"
-                                        >
-                                            <div class="overplay-song">
-                                                <i
-                                                    class="fa-regular fa-circle-play icon-play-playlist"
-                                                ></i>
-                                                <p class="home-play-music-text">
-                                                    Play music
-                                                </p>
-                                            </div>
-                                            <img
-                                                src="../Media/background-image.avif"
-                                                alt=""
-                                                class="general-playlist-img"
-                                            />
-                                        </div>
-                                        <div class="general-playlist-song-info">
-                                            <h2
-                                                class="general-playlist-song-title"
-                                            >
-                                                Song 1
-                                            </h2>
-                                            <p
-                                                class="general-playlist-song-author"
-                                            >
-                                                Author 1
-                                            </p>
-                                            <p
-                                                class="general-playlist-song-time"
-                                            >
-                                                5:00
-                                            </p>
-                                        </div>
-                                    </a>
-                                    <a
-                                        href="./edit-form.jsp"
-                                        class="button-song"
-                                    >
-                                        Edit
-                                    </a>
-                                </li>
-                                <li class="general-playlist-song">
-                                    <a
-                                        href="./detail-page.jsp"
-                                        class="general-playlist-link-song"
-                                    >
-                                        <div
-                                            class="general-playlist-song-img-container"
-                                        >
-                                            <div class="overplay-song">
-                                                <i
-                                                    class="fa-regular fa-circle-play icon-play-playlist"
-                                                ></i>
-                                                <p class="home-play-music-text">
-                                                    Play music
-                                                </p>
-                                            </div>
-                                            <img
-                                                src="../Media/background-image.avif"
-                                                alt=""
-                                                class="general-playlist-img"
-                                            />
-                                        </div>
-                                        <div class="general-playlist-song-info">
-                                            <h2
-                                                class="general-playlist-song-title"
-                                            >
-                                                Song 1
-                                            </h2>
-                                            <p
-                                                class="general-playlist-song-author"
-                                            >
-                                                Author 1
-                                            </p>
-                                            <p
-                                                class="general-playlist-song-time"
-                                            >
-                                                5:00
-                                            </p>
-                                        </div>
-                                    </a>
-                                    <a
-                                        href="./edit-form.jsp"
-                                        class="button-song"
-                                    >
-                                        Edit
-                                    </a>
-                                </li>
-                                <li class="general-playlist-song">
-                                    <a
-                                        href="./detail-page.jsp"
-                                        class="general-playlist-link-song"
-                                    >
-                                        <div
-                                            class="general-playlist-song-img-container"
-                                        >
-                                            <div class="overplay-song">
-                                                <i
-                                                    class="fa-regular fa-circle-play icon-play-playlist"
-                                                ></i>
-                                                <p class="home-play-music-text">
-                                                    Play music
-                                                </p>
-                                            </div>
-                                            <img
-                                                src="../Media/background-image.avif"
-                                                alt=""
-                                                class="general-playlist-img"
-                                            />
-                                        </div>
-                                        <div class="general-playlist-song-info">
-                                            <h2
-                                                class="general-playlist-song-title"
-                                            >
-                                                Song 1
-                                            </h2>
-                                            <p
-                                                class="general-playlist-song-author"
-                                            >
-                                                Author 1
-                                            </p>
-                                            <p
-                                                class="general-playlist-song-time"
-                                            >
-                                                5:00
-                                            </p>
-                                        </div>
-                                    </a>
-                                    <a
-                                        href="./edit-form.jsp"
-                                        class="button-song"
-                                    >
-                                        Edit
-                                    </a>
-                                </li>
-                                <li class="general-playlist-song">
-                                    <a
-                                        href="./detail-page.jsp"
-                                        class="general-playlist-link-song"
-                                    >
-                                        <div
-                                            class="general-playlist-song-img-container"
-                                        >
-                                            <div class="overplay-song">
-                                                <i
-                                                    class="fa-regular fa-circle-play icon-play-playlist"
-                                                ></i>
-                                                <p class="home-play-music-text">
-                                                    Play music
-                                                </p>
-                                            </div>
-                                            <img
-                                                src="../Media/background-image.avif"
-                                                alt=""
-                                                class="general-playlist-img"
-                                            />
-                                        </div>
-                                        <div class="general-playlist-song-info">
-                                            <h2
-                                                class="general-playlist-song-title"
-                                            >
-                                                Song 1
-                                            </h2>
-                                            <p
-                                                class="general-playlist-song-author"
-                                            >
-                                                Author 1
-                                            </p>
-                                            <p
-                                                class="general-playlist-song-time"
-                                            >
-                                                5:00
-                                            </p>
-                                        </div>
-                                    </a>
-                                    <a
-                                        href="./edit-form.jsp"
-                                        class="button-song"
-                                    >
-                                        Edit
-                                    </a>
-                                </li>
+                               <%  }%>
                             </ul>
                         </div>
                     </div>

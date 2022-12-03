@@ -19,19 +19,17 @@ public class PlaylistServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        PlaylistBO playListBO=new PlaylistBO();
-        SongBO songBO=new SongBO();
-        ArrayList<Song> playList=playListBO.getAllSongByIDList(1);
-        playListBO.removeSongFromPlayList(4,1);
-        request.setAttribute("playList",playList);
-        destination="/ViewListTest.jsp";
-        RequestDispatcher rd=getServletContext().getRequestDispatcher(destination);
-        rd.forward(request,response);
+        PlaylistBO playlistBO = new PlaylistBO();
+
        if(request.getAttribute("generalPlaylist")!=null){
-//           ArrayList<Song> playlistSong =songBO.get();
-           request.setAttribute("playList",playList);
+           ArrayList<Song> playlistSong =playlistBO.getAllSongByIDList(0);
+           request.setAttribute("generalPlaylistSong",playlistSong);
            RequestDispatcher rd=getServletContext().getRequestDispatcher("/general-playlist.jsp");
            rd.forward(request,response);
        }
+//        ArrayList<Song> playlistSong =playlistBO.getAllSongByIDList(0);
+//        request.setAttribute("generalPlaylistSong",playlistSong);
+//        RequestDispatcher rd=getServletContext().getRequestDispatcher("/general-playlist.jsp");
+//        rd.forward(request,response);
     }
 }
