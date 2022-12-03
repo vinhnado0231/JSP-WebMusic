@@ -3,24 +3,30 @@ package model.dao;
 import model.bean.Playlist;
 import model.bean.Song;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 public class PlaylistDAO {
-    public PlaylistDAO(){}
-    private ConnectDB connectDB=new ConnectDB();
-    public ArrayList<Playlist> getAllPlaylist(){
-        ArrayList<Playlist> listSongs=new ArrayList<>();
+    public PlaylistDAO() {
+    }
+
+    private ConnectDB connectDB = new ConnectDB();
+
+    public ArrayList<Playlist> getAllPlaylist() {
+        ArrayList<Playlist> listSongs = new ArrayList<>();
         try {
-            Connection conn=connectDB.getAConnect();
+            Connection conn = connectDB.getAConnect();
             Statement stmt = conn.createStatement();
             String sql = "select * from playlist";
-            ResultSet rs=stmt.executeQuery(sql);
-            while(rs.next()){
-                int id=Integer.parseInt(rs.getString("idlist"));
-                int iduser=Integer.parseInt(rs.getString("iduser"));
-                String namelist=rs.getString("namelist");
-                Playlist list=new Playlist(id,namelist,iduser);
+            ResultSet rs = stmt.executeQuery(sql);
+            while (rs.next()) {
+                int id = Integer.parseInt(rs.getString("idlist"));
+                int iduser = Integer.parseInt(rs.getString("iduser"));
+                String namelist = rs.getString("namelist");
+                Playlist list = new Playlist(id, namelist, iduser);
                 listSongs.add(list);
             }
         } catch (Exception e) {
@@ -28,9 +34,10 @@ public class PlaylistDAO {
         }
         return listSongs;
     }
-    public Song getSongbyIdSong(int id){
-        Connection conn=connectDB.getAConnect();
-        Song baihat=new Song();
+
+    public Song getSongbyIdSong(int id) {
+        Connection conn = connectDB.getAConnect();
+        Song baihat = new Song();
         Statement stmt = null;
         try {
             stmt = conn.createStatement();
@@ -39,8 +46,8 @@ public class PlaylistDAO {
             PreparedStatement pst;
             pst = conn.prepareStatement(sql);
             pst.setString(1, Integer.toString(id));
-            ResultSet rs=pst.executeQuery();
-            while(rs.next()){
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
                 baihat.setIdSong(Integer.parseInt(rs.getString("id")));
                 baihat.setCaSi(rs.getString("CaSi"));
                 baihat.setTenBaiHat(rs.getString("TenBaiHat"));
@@ -55,9 +62,10 @@ public class PlaylistDAO {
         }
         return baihat;
     }
-    public ArrayList<Song> getAllSongByIDPlayList(int idList){
-        ArrayList<Song> listSong=new ArrayList<>();
-        Connection conn=connectDB.getAConnect();
+
+    public ArrayList<Song> getAllSongByIDPlayList(int idList) {
+        ArrayList<Song> listSong = new ArrayList<>();
+        Connection conn = connectDB.getAConnect();
         Statement stmt = null;
         try {
             stmt = conn.createStatement();
@@ -65,9 +73,9 @@ public class PlaylistDAO {
             PreparedStatement pst;
             pst = conn.prepareStatement(sql);
             pst.setString(1, Integer.toString(idList));
-            ResultSet rs=pst.executeQuery();
-            while(rs.next()){
-                Song baihat=getSongbyIdSong(Integer.parseInt(rs.getString("idsong")));
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                Song baihat = getSongbyIdSong(Integer.parseInt(rs.getString("idsong")));
                 listSong.add(baihat);
             }
         } catch (Exception e) {
@@ -75,13 +83,14 @@ public class PlaylistDAO {
         }
         return listSong;
     }
-    public void addPlayList(int idUser,String nameList){
 
-        Connection conn=connectDB.getAConnect();
+    public void addPlayList(int idUser, String nameList) {
+
+        Connection conn = connectDB.getAConnect();
         Statement stmt = null;
         try {
             stmt = conn.createStatement();
-            String sql="INSERT INTO playlist (idlist, iduser, namelist) VALUES (NULL,\'"+idUser +"\',\'"+nameList+"\')";
+            String sql = "INSERT INTO playlist (idlist, iduser, namelist) VALUES (NULL,\'" + idUser + "\',\'" + nameList + "\')";
             PreparedStatement pst;
             stmt.executeUpdate(sql);
 
@@ -89,31 +98,46 @@ public class PlaylistDAO {
             throw new RuntimeException(e);
         }
     }
-    public  void removePlayList(int idlist){
-        Connection conn=connectDB.getAConnect();
+
+    public void removePlayList(int idlist) {
+        Connection conn = connectDB.getAConnect();
         Statement stmt = null;
         try {
             stmt = conn.createStatement();
-            String sql="delete from playlist where idlist= \'"+idlist+"\'";
+            String sql = "delete from playlist where idlist= \'" + idlist + "\'";
             stmt.executeUpdate(sql);
 
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
-    public void updatePlayList(int idList,int idUser,String nameList){
-        Connection conn=connectDB.getAConnect();
+
+    public void updatePlayList(int idList, int idUser, String nameList) {
+        Connection conn = connectDB.getAConnect();
         Statement stmt = null;
         try {
             stmt = conn.createStatement();
-            String sql="update playlist set namelist=?, iduser=? where idlist=?";
+            String sql = "update playlist set namelist=?, iduser=? where idlist=?";
             PreparedStatement preparedStatement = conn.prepareStatement(sql);
-            preparedStatement.setInt(3,idList);
-            preparedStatement.setInt(2,idUser);
-            preparedStatement.setString(1,nameList);
+            preparedStatement.setInt(3, idList);
+            preparedStatement.setInt(2, idUser);
+            preparedStatement.setString(1, nameList);
             preparedStatement.executeUpdate(sql);
         } catch (Exception e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    public void addSongToPlayList(int idSong, int idList) {
+        String insert_new_song_to_playlist = "INSERT INTO `playlist_detail` (`idlist`, `idsong`) VALUES (?, ?)";
+        Connection conn = connectDB.getAConnect();
+        try {
+            PreparedStatement preparedStatement = conn.prepareStatement(insert_new_song_to_playlist);
+            preparedStatement.setInt(1, idList);
+            preparedStatement.setInt(2, idSong);
+            preparedStatement.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }
