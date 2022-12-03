@@ -1,6 +1,7 @@
 package controller;
 
 import model.bean.User;
+import model.bo.PlaylistBO;
 import model.bo.SongBO;
 import model.bo.UserBO;
 
@@ -10,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -24,6 +26,7 @@ public class SongServlet extends HttpServlet {
         System.out.println("VAo");
         User user = userBO.getUserByIdaccount(1);
         System.out.println(user.getName());
+        doPost(request, response);
     }
 
     @Override
@@ -48,6 +51,11 @@ public class SongServlet extends HttpServlet {
 
                 break;
             default:
+                try {
+                    displayDetailForm(request, response);
+                } catch (Exception e) {
+
+                }
                 break;
         }
     }
@@ -65,6 +73,20 @@ public class SongServlet extends HttpServlet {
         dispatcher.forward(request, response);
     }
 
+    private void displayDetailForm(HttpServletRequest request, HttpServletResponse response) throws
+            ServletException, IOException, SQLException {
+        HttpSession session = request.getSession();
+        SongBO songBO = new SongBO();
+        PlaylistBO playlistBO = new PlaylistBO();
 
+        String idPLaylistNow = (String) session.getAttribute("idPlaylistNow");
 
+        String idSongNow = request.getParameter("idSongNow");
+        session.setAttribute("idSongNow",idSongNow);
+
+        session.setAttribute("songNow",  songBO.getSongById(Integer.parseInt(idSongNow)));
+        session.setAttribute("playlistNow", playlistBO.getPlaylistByID(idPLaylistNow));
+
+        response.sendRedirect("/detail-page.jsp");
+    }
 }

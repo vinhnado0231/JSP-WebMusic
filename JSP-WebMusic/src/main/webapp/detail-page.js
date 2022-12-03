@@ -15,35 +15,80 @@ let total_duration = document.querySelector(".total-duration");
 let randomIcon = document.querySelector(".fa-random");
 let curr_track = document.createElement("audio");
 
-let track_index = 0;
+const trackArtImg = document.querySelector(".track-art-img");
+let indexFromHTML = document.querySelector(".container-index-song");
+
+let track_index = Number(indexFromHTML.textContent);
 let isPlaying = false;
 let isRandom = false;
 let updateTimer;
 
 const music_list = [
     {
-        img: "images/stay.png",
-        name: "Stay",
-        artist: "The Kid LAROI, Justin Bieber",
-        music: "../Media/test.mp3",
-    },
-    {
-        img: "images/fallingdown.jpg",
-        name: "Falling Down",
-        artist: "Wid Cards",
-        music: "../Media/test.mp3",
-    },
-    {
-        img: "images/faded.png",
-        name: "Faded",
+        img: "./Media/MUSIC/1.Ritual - Alan Walker/1.png",
+        name: "Ritual",
         artist: "Alan Walker",
-        music: "../Media/test.mp3",
+        music: "./Media/MUSIC/1.Ritual - Alan Walker/Alan Walker - Ritual (Official Music Video).mp3",
     },
     {
-        img: "images/ratherbe.jpg",
-        name: "Rather Be",
-        artist: "Clean Bandit",
-        music: "../Media/test.mp3",
+        img: "./Media/MUSIC/2.Murder In My Mind - Kordhell/2.png",
+        name: "Murder In My Mind",
+        artist: "Kordhell",
+        music: "./Media/MUSIC/2.Murder In My Mind - Kordhell/KORDHELL - MURDER IN MY MIND (128 kbps).mp3",
+    },
+    {
+        img: "./Media/MUSIC/3.Play - K-391, Alan Walker, Martin Tungev/3.png",
+        name: "Play",
+        artist: "K-391, Alan Walker, Martin Tungev",
+        music: "./Media/MUSIC/3.Play - K-391, Alan Walker, Martin Tungev/Alan Walker, K-391, Tungevaag, Mangoo - PLAY (Alan Walker's Video).mp3",
+    },
+    {
+        img: "./Media/MUSIC/4.Hello World - Alan Walker, Torine/4.png",
+        name: "Hello World",
+        artist: "Alan Walker",
+        music: "./Media/MUSIC/4.Hello World - Alan Walker, Torine/Alan Walker & Torine - Hello World (Official Music Video).mp3",
+    },
+    {
+        img: "./Media/MUSIC/5.Buồn Không Thể Buông - Trung Quân Idol, MiiNa/5.png",
+        name: "Buồn Không Thể Buông",
+        artist: "Trung Quân Idol",
+        music: "./Media/MUSIC/5.Buồn Không Thể Buông - Trung Quân Idol, MiiNa/BUỒN không thể BUÔNG - Trung Quân x MiiNa x RIN9 (DREAMeR) - OFFICIAL MUSIC VIDEO.mp3",
+    },
+    {
+        img: "./Media/MUSIC/6.Sau Lưng Anh Có Ai Kìa (Winter Version) - Thiều Bảo Trâm/6.png",
+        name: "Sau Lưng Anh Có Ai Kìa (Winter Version)",
+        artist: "Thiều Bảo Trâm",
+        music: "./Media/MUSIC/6.Sau Lưng Anh Có Ai Kìa (Winter Version) - Thiều Bảo Trâm/SAU LƯNG ANH CÓ AI KÌA - THIỀU BẢO TRÂM x NGUYỄN PHÚC THIỆN - Official MV.mp3",
+    },
+    {
+        img: "./Media/MUSIC/7.Kỳ Vọng Sai Lầm - Tăng Phúc, Nguyễn Đình Vũ, Yuno Bigboi/7.png",
+        name: "Kỳ Vọng Sai Lầm",
+        artist: "Tăng Phúc, Nguyễn Đình Vũ, Yuno Bigboi",
+        music: "./Media/MUSIC/7.Kỳ Vọng Sai Lầm - Tăng Phúc, Nguyễn Đình Vũ, Yuno Bigboi/OFFICIAL MV - KỲ VỌNG SAI LẦM - NGUYỄN ĐÌNH VŨ x TĂNG PHÚC x YUNO BIGBOI.mp3",
+    },
+    {
+        img: "./Media/MUSIC/8. Lặng Yên (Lặng Yên Dưới Vực Sâu OST) - Bùi Anh Tuấn, Ái Phương/8.png",
+        name: "Lặng Yên (Lặng Yên Dưới Vực Sâu OST)",
+        artist: "Bùi Anh Tuấn, Ái Phương",
+        music: "./Media/MUSIC/8. Lặng Yên (Lặng Yên Dưới Vực Sâu OST) - Bùi Anh Tuấn, Ái Phương/Lặng Yên - Bùi Anh Tuấn ft Ái Phương (Lyrics).mp3",
+    },
+    {
+        img: "./Media/MUSIC/9.Suýt Nữa Thì (Chuyến Đi Của Thanh Xuân OST) - Andiez/9.png",
+        name: "Suýt Nữa Thì (Chuyến Đi Của Thanh Xuân OST)",
+        artist: "Andiez",
+        music: "./Media/MUSIC/9.Suýt Nữa Thì (Chuyến Đi Của Thanh Xuân OST) - Andiez/SUÝT NỮA THÌ - OFFICIAL OST - CHUYẾN ĐI CỦA THANH XUÂN - ANDIEZ x BITI'S HUNTER - LYRIC VIDEO.mp3",
+    },
+    {
+        img: "./Media/MUSIC/10.Nhẹ (Nhắm Mắt Thấy Mùa Hè OST) - Uyên Pím (Bệt Band)/10.png",
+        name: "Nhẹ (Nhắm Mắt Thấy Mùa Hè OST)",
+        artist: "Uyên Pím (Bệt Band)",
+        music: "./Media/MUSIC/10.Nhẹ (Nhắm Mắt Thấy Mùa Hè OST) - Uyên Pím (Bệt Band)/NHẮM MẮT THẤY MÙA HÈ - MV LYRIC - NHẸ - KC 25.05.2018.mp3",
+    },
+    {
+        img: "./Media/MUSIC/11.3107 4 - Wn x Erik ft Nâu/11.png",
+        name: "3107 4",
+        artist: " Wn x Erik ft Nâu",
+        music: "./Media/MUSIC/11.3107 4 - Wn x Erik ft Nâu/3107 4 - Wn x Erik ft.mp3",
     },
 ];
 
@@ -56,8 +101,7 @@ function loadTrack(track_index) {
     curr_track.src = music_list[track_index].music;
     curr_track.load();
 
-    track_art.style.backgroundImage =
-        "url(" + music_list[track_index].img + ")";
+    trackArtImg.src = music_list[track_index].img;
     track_name.textContent = music_list[track_index].name;
     track_artist.textContent = music_list[track_index].artist;
     now_playing.textContent =

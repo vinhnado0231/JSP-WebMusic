@@ -17,8 +17,8 @@ public class PlaylistBO {
         return playlistDAO.getAllSongByIDPlayList(idlist);
     }
 
-    public void addPlayList(int idUser, String nameList) {
-        playlistDAO.addPlayList(idUser, nameList);
+    public void addPlayList(int idUser, String nameList,String target) {
+        playlistDAO.addPlayList(idUser, nameList,target);
     }
 
     public void deletePlayList(int idlist) {
@@ -35,5 +35,11 @@ public class PlaylistBO {
 
     public void removeSongFromPlayList(int idlist, int idsong) {
         playlistDAO.removeSongFromPlayList(idlist, idsong);
+    }
+    public Playlist getPlaylistByID(String id){
+        return playlistDAO.getPlaylistByID(id);
+    }
+    public ArrayList<Playlist> getPlayListofUser(int iduser){
+        return playlistDAO.getPlayListofUser(iduser);
     }
 }
