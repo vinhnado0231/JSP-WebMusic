@@ -21,7 +21,6 @@ public class PlaylistServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        doPost(request, response);
         String action = request.getParameter("action");
         if (action == null) {
             action = "";
@@ -39,7 +38,7 @@ public class PlaylistServlet extends HttpServlet {
                     break;
                 case "delete":
                     break;
-                case "search":
+                case "create":
                     break;
                 default:
                     break;
@@ -53,7 +52,33 @@ public class PlaylistServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        String action = request.getParameter("action");
+        if (action == null) {
+            action = "";
+        }
+        try {
+            switch (action) {
+                case "generalPlaylist":
+                    displayGeneralPlaylist(request, response);
+                    break;
+                case "detailList":
+                    displayDetailList(request, response);
+                    break;
+                case "detailPage":
+                    displayDetailPage(request,response);
+                    break;
+                case "delete":
+                    break;
+                case "create":
+                    break;
+                default:
+                    break;
+            }
+        } catch (ServletException ex) {
+            ex.printStackTrace();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
     }
 
     private void displayGeneralPlaylist(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

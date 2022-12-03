@@ -14,7 +14,7 @@ import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 
-@WebServlet("/SongServlet1")
+@WebServlet("/SongServlet")
 public class SongServlet extends HttpServlet {
     private SongBO songBO = new SongBO();
     private UserBO userBO = new UserBO();
