@@ -1,3 +1,5 @@
+<%@ page import="model.bean.Song" %>
+<%@ page import="java.util.ArrayList" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -92,14 +94,12 @@
                     <p class="sub-info-content">Follow</p>
                 </div>
                 <div class="container-app-content">
-                    <div style="display: none;" class="container-index-song">0</div>
+                    <%Song songNow = (Song) session.getAttribute("songNow");%>
+                    <div style="display: none;" class="container-index-song"><%=songNow.getIdSong()-1%></div>
                     <div class="detail-page-container">
                         <div class="detail-page-container-player">
                             <div class="wrapper">
                                 <div class="details">
-                                    <div class="now-playing">
-                                        PLAYING x OF y
-                                    </div>
                                     <div class="track-art">
                                         <img src="" alt="track-art" class="track-art-img">
                                     </div>
@@ -177,7 +177,10 @@
                             <div class="detail-page-info">
                                 <h2 class="detail-page-info-title">Lyric</h2>
                                 <p class="detail-page-info-lyric">
-                                    <p class="lyric-item"></p>
+                                    <%String[] lyric =  songNow.getLoiBaiHat().split(".");
+                                        for( int i = 0; i < lyric.length; i++) {%>
+                                            <p class="lyric-item"><%=lyric[i]%></p>
+                                    <%}%>
                                 </p>
                             </div>
                         </div>
