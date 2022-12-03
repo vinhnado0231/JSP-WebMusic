@@ -24,8 +24,8 @@
                 </a>
                 <nav class="nav-app">
                     <a
-                            href="AccountServlet?action=/"
-                            class= "nav-item <%try {if (session.getAttribute("changePage").equals("home")) {%>
+                        href="AccountServlet?action=/"
+                        class= "nav-item <%try {if (session.getAttribute("changePage").equals("home")) {%>
                                 active-nav
                             <%}} catch (Exception e) {%>
                                 active-nav
@@ -34,8 +34,8 @@
                         Home
                     </a>
                     <a
-                            href="AccountServlet?action=generalPlaylist"
-                            class= "nav-item <%try {if (session.getAttribute("changePage").equals("generalPlaylist")) {%>
+                        href="PlaylistServlet?action=generalPlaylist"
+                        class= "nav-item <%try {if (session.getAttribute("changePage").equals("generalPlaylist")) {%>
                                 active-nav
                             <%}} catch (Exception e) {}%> "
                     >
@@ -48,32 +48,32 @@
                     <%}} catch (Exception e) {%> <%}%>
 
                     <%try {if (!(boolean)
-                            session.getAttribute("checkLogin")) {
+                        session.getAttribute("checkLogin")) {
                     %>
                     <a
-                            href="AccountServlet?action=loginForm"
-                            class="login-button"
+                        href="AccountServlet?action=loginForm"
+                        class="login-button"
                     >
                         Login now
                     </a>
                     <%} else {%>
                     <div class="user-avt-container">
                         <a
-                                href="AccountServlet?action=logout"
-                                class="log-out-container"
+                            href="AccountServlet?action=logout"
+                            class="log-out-container"
                         >
                             <i class="fa-solid fa-arrow-right-from-bracket"></i>
                         </a>
                         <img
-                                src="./Media/AVATAR/AVT1.png"
-                                alt="avt"
-                                class="user-avt-img"
+                            src="./Media/AVATAR/AVT1.png"
+                            alt="avt"
+                            class="user-avt-img"
                         />
                     </div>
                     <%}} catch (Exception e) {%>
                     <a
-                            href="AccountServlet?action=loginForm"
-                            class="login-button"
+                        href="AccountServlet?action=loginForm"
+                        class="login-button"
                     >
                         Login now
                     </a>
