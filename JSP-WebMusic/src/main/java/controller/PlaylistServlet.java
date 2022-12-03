@@ -2,6 +2,7 @@ package controller;
 
 import model.bean.Song;
 import model.bo.PlaylistBO;
+import model.bo.SongBO;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -64,6 +65,15 @@ public class PlaylistServlet extends HttpServlet {
             ServletException, IOException, SQLException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("add-form.jsp");
         dispatcher.forward(request, response);
+        PlaylistBO playListBO=new PlaylistBO();
+        SongBO songBO=new SongBO();
+        ArrayList<Song> playList=playListBO.getAllSongByIDList(1);
+       if(request.getAttribute("generalPlaylist")!=null){
+//           ArrayList<Song> playlistSong =songBO.get();
+           request.setAttribute("playList",playList);
+           RequestDispatcher rd=getServletContext().getRequestDispatcher("/general-playlist.jsp");
+           rd.forward(request,response);
+       }
     }
 
     private void createPlaylist(HttpServletRequest request, HttpServletResponse response) throws
