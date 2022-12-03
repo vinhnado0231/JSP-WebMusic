@@ -54,8 +54,6 @@ public class AccountServlet extends HttpServlet {
             session.setAttribute("changePage", "home");
             response.sendRedirect("/");
         }
-
-
     }
 }
 
