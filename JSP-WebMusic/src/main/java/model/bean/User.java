@@ -7,6 +7,7 @@ public class User {
     private int idaccount;
     private int idrole;
 
+
     public User() {
     }
 
