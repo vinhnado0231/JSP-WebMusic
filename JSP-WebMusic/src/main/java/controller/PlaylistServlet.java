@@ -87,18 +87,50 @@ public class PlaylistServlet extends HttpServlet {
             HttpSession session = request.getSession();
             SongBO songBO = new SongBO();
 
+
             int idPLaylistNow = (int)session.getAttribute("idPlaylistNow");
+
+
 
             String idSongNow = request.getParameter("idSongNow");
             session.setAttribute("idSongNow",idSongNow);
 
             session.setAttribute("songNow",  songBO.getSongById(Integer.parseInt(idSongNow)));
+
             ArrayList<Song> list = playlistBO.getAllSongByIDList(idPLaylistNow);
 
             session.setAttribute("playlistDetailNow", list);
 
 
             response.sendRedirect("/detail-page.jsp");
+
+
+//            response.sendRedirect("/detail-page.jsp");
+        }else if(request.getParameter("action").equals("addPlaylist")){
+            RequestDispatcher rd = getServletContext().getRequestDispatcher("/add-form.jsp");
+            rd.forward(request, response);
+
+        }else if(request.getParameter("action").equals("editDetailList")){
+            String idUpdate= request.getParameter("idDetailList");
+            HttpSession session = request.getSession();
+            session.setAttribute("idUpdate",idUpdate);
+            session.setAttribute("nameUpdate", playlistBO.getPlaylistByID(idUpdate).getNameList());
+            RequestDispatcher rd = getServletContext().getRequestDispatcher("/edit-form.jsp");
+            rd.forward(request, response);
+
+        }else if(request.getParameter("updatePlaylist")!=null){
+            HttpSession session = request.getSession();
+            String txt=request.getParameter("txtUpdate");
+            String idListUpdate=request.getParameter("updatePlaylist");
+            int iduser=((User)session.getAttribute("userNow")).getIduser();
+            playlistBO.updatePlayList(Integer.parseInt(idListUpdate),iduser,txt);
+            User userNow = (User) session.getAttribute("userNow");
+            ArrayList<Playlist> yourPlaylist=playlistBO.getPlayListofUser(userNow.getIduser());
+            session.setAttribute("yourPlaylist", yourPlaylist);
+            RequestDispatcher rd = getServletContext().getRequestDispatcher("/your-playlist.jsp");
+            rd.forward(request, response);
+
+
         }
 
 
