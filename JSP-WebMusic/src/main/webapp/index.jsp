@@ -38,7 +38,7 @@ charset=UTF-8" pageEncoding="UTF-8" %>
                         Home
                     </a>
                     <a
-                        href="AccountServlet?action=generalPlaylist"
+                        href="PlaylistServlet?action=generalPlaylist"
                         class= "nav-item <%try {if (session.getAttribute("changePage").equals("generalPlaylist")) {%>
                                 active-nav
                             <%}} catch (Exception e) {}%> "
