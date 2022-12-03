@@ -101,6 +101,7 @@
             %>
             <li class="general-playlist-song">
               <a
+
                         href="PlaylistServlet?action=detailPage&&idSongNow=<%=playlistSong.get(i).getIdSong()%>"
 <%--                      href="PlaylistServlet?action=detailPage&&idSongNow=<%=playlistSong.get(i).getIdSong()%>"--%>
                       class="general-playlist-link-song"

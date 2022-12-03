@@ -76,6 +76,7 @@ public class PlaylistServlet extends HttpServlet {
             rd.forward(request, response);
         }else if(request.getParameter("action").equals("yourPlaylist")){
             HttpSession session=request.getSession();
+            session.setAttribute("changePage", "yourPlaylist");
             User userNow = (User) session.getAttribute("userNow");
             ArrayList<Playlist> yourPlaylist=playlistBO.getPlayListofUser(userNow.getIduser());
             session.setAttribute("yourPlaylist", yourPlaylist);
@@ -86,15 +87,24 @@ public class PlaylistServlet extends HttpServlet {
             HttpSession session = request.getSession();
             SongBO songBO = new SongBO();
 
-            String idPLaylistNow = Integer.toString(((int) session.getAttribute("idPlaylistNow")));
+
+            int idPLaylistNow = (int)session.getAttribute("idPlaylistNow");
+
+
 
             String idSongNow = request.getParameter("idSongNow");
             session.setAttribute("idSongNow",idSongNow);
 
             session.setAttribute("songNow",  songBO.getSongById(Integer.parseInt(idSongNow)));
-            session.setAttribute("playlistNow", playlistBO.getPlaylistByID(idPLaylistNow));
-            RequestDispatcher rd = getServletContext().getRequestDispatcher("/detail-page.jsp");
-            rd.forward(request, response);
+
+            ArrayList<Song> list = playlistBO.getAllSongByIDList(idPLaylistNow);
+
+            session.setAttribute("playlistDetailNow", list);
+
+
+            response.sendRedirect("/detail-page.jsp");
+
+
 //            response.sendRedirect("/detail-page.jsp");
         }else if(request.getParameter("action").equals("addPlaylist")){
             RequestDispatcher rd = getServletContext().getRequestDispatcher("/add-form.jsp");
@@ -119,6 +129,7 @@ public class PlaylistServlet extends HttpServlet {
             session.setAttribute("yourPlaylist", yourPlaylist);
             RequestDispatcher rd = getServletContext().getRequestDispatcher("/your-playlist.jsp");
             rd.forward(request, response);
+
 
         }
 

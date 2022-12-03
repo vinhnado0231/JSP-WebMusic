@@ -40,7 +40,9 @@
         General playlist
       </a>
       <%try {if ((boolean) session.getAttribute("checkLogin")) {%>
-      <a href="PlaylistServlet?action=yourPlaylist" class="nav-item">
+      <a href="PlaylistServlet?action=yourPlaylist" class="nav-item <%try {if (session.getAttribute("changePage").equals("yourPlaylist")) {%>
+                                active-nav
+                            <%}} catch (Exception e) {}%>">
         Your playlist
       </a>
       <%}} catch (Exception e) {%> <%}%>
