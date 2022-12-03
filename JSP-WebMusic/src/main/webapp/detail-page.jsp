@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link rel="stylesheet" href="./detail-page2.css" />
+        <link rel="stylesheet" href="./detail-page3.css" />
         <link rel="stylesheet" href="./index.css" />
         <link rel="stylesheet" href="./user-avt.css" />
 
@@ -92,6 +92,7 @@
                     <p class="sub-info-content">Follow</p>
                 </div>
                 <div class="container-app-content">
+                    <div style="display: none;" class="container-index-song">0</div>
                     <div class="detail-page-container">
                         <div class="detail-page-container-player">
                             <div class="wrapper">
@@ -99,7 +100,9 @@
                                     <div class="now-playing">
                                         PLAYING x OF y
                                     </div>
-                                    <div class="track-art"></div>
+                                    <div class="track-art">
+                                        <img src="" alt="track-art" class="track-art-img">
+                                    </div>
                                     <div class="track-name">Track Name</div>
                                     <div class="track-artist">Track Artist</div>
                                 </div>
@@ -133,7 +136,7 @@
                                 <div class="buttons">
                                     <div
                                         class="detail-song-icon random-track"
-                                        onclick="randomTrack()"
+                                        onclick=""
                                     >
                                         <i
                                             class="fas fa-random fa-2x"
@@ -142,7 +145,7 @@
                                     </div>
                                     <div
                                         class="detail-song-icon prev-track"
-                                        onclick="prevTrack()"
+                                        onclick=""
                                     >
                                         <i
                                             class="fa fa-step-backward fa-2x"
@@ -156,13 +159,13 @@
                                     </div>
                                     <div
                                         class="detail-song-icon next-track"
-                                        onclick="nextTrack()"
+                                        onclick=""
                                     >
                                         <i class="fa fa-step-forward fa-2x"></i>
                                     </div>
                                     <div
                                         class="detail-song-icon repeat-track"
-                                        onclick="repeatTrack()"
+                                        onclick=""
                                     >
                                         <i
                                             class="fa fa-repeat fa-2x"
@@ -173,11 +176,14 @@
                             </div>
                             <div class="detail-page-info">
                                 <h2 class="detail-page-info-title">Lyric</h2>
+                                <p class="detail-page-info-lyric">
+                                    <p class="lyric-item"></p>
+                                </p>
                             </div>
                         </div>
                         <ul class="list-song">
                             <li class="list-song-item">
-                                <a href="./detail-page.jsp">
+                                <a href="./Media/MUSIC/11.3107 4 - Wn x Erik ft Nâu/3107 4 - Wn x Erik ft.mp3">
                                     <div class="list-song-item-img-container">
                                         <div class="overplay-song">
                                             <i
