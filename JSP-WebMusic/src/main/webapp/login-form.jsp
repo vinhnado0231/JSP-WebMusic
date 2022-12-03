@@ -5,11 +5,16 @@
         <link rel="stylesheet" href="./login-form2.css" />
     </head>
     <body>
-            <%if (!(boolean) session.getAttribute("checkLogin")) {%>
-                <h1 class="login-noti">
-                    Login Fail, check your username or password
-                </h1>
-            <%}%>
+    <%try {if (!(boolean)
+            session.getAttribute("checkLogin")) {
+    %>
+        <h1 class="login-noti">
+            Login Fail, check your username or password
+        </h1>
+    <%}} catch (Exception e) {
+
+    }%>
+
 
         <div class="login-form-container">
             <form action="AccountServlet?action=login" class="login-form" method="post">
