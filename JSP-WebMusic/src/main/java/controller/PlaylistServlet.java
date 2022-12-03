@@ -4,6 +4,7 @@ import model.bean.Playlist;
 import model.bean.Song;
 import model.bean.User;
 import model.bo.PlaylistBO;
+import model.bo.SongBO;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -75,6 +76,7 @@ public class PlaylistServlet extends HttpServlet {
             rd.forward(request, response);
         }else if(request.getParameter("action").equals("yourPlaylist")){
             HttpSession session=request.getSession();
+            session.setAttribute("changePage", "yourPlaylist");
             User userNow = (User) session.getAttribute("userNow");
             ArrayList<Playlist> yourPlaylist=playlistBO.getPlayListofUser(userNow.getIduser());
             session.setAttribute("yourPlaylist", yourPlaylist);
@@ -82,8 +84,21 @@ public class PlaylistServlet extends HttpServlet {
             rd.forward(request, response);
         }else if(request.getParameter("action").equals("detailPage")){
 
-            RequestDispatcher rd = getServletContext().getRequestDispatcher("/detail-page.jsp");
-            rd.forward(request, response);
+            HttpSession session = request.getSession();
+            SongBO songBO = new SongBO();
+
+            int idPLaylistNow = (int)session.getAttribute("idPlaylistNow");
+
+            String idSongNow = request.getParameter("idSongNow");
+            session.setAttribute("idSongNow",idSongNow);
+
+            session.setAttribute("songNow",  songBO.getSongById(Integer.parseInt(idSongNow)));
+            ArrayList<Song> list = playlistBO.getAllSongByIDList(idPLaylistNow);
+
+            session.setAttribute("playlistDetailNow", list);
+
+
+            response.sendRedirect("/detail-page.jsp");
         }
 
 

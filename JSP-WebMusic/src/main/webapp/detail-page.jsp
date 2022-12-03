@@ -1,12 +1,16 @@
 <%@ page import="model.bean.Song" %>
 <%@ page import="java.util.ArrayList" %>
+<%@ page import="model.bo.PlaylistBO" %>
+<%@ page import="model.bean.Playlist" %>
+<%@ page import="java.lang.reflect.Array" %>
+<%@ page import="java.util.Arrays" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link rel="stylesheet" href="./detail-page3.css" />
+        <link rel="stylesheet" href="detail-page5.css" />
         <link rel="stylesheet" href="./index.css" />
         <link rel="stylesheet" href="./user-avt.css" />
-
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
         <link
             rel="shortcut icon"
             href="images/favicon.ico"
@@ -176,22 +180,25 @@
                             </div>
                             <div class="detail-page-info">
                                 <h2 class="detail-page-info-title">Lyric</h2>
-                                <p class="detail-page-info-lyric">
-                                    <%String[] lyric =  songNow.getLoiBaiHat().split(".");
-                                        for( int i = 0; i < lyric.length; i++) {%>
-                                            <p class="lyric-item"><%=lyric[i]%></p>
-                                    <%}%>
-                                </p>
+                                <%
+                                    String[] lyric =  songNow.getLoiBaiHat().split("\\.");
+                                    %>
+                                <div class="detail-page-info-lyric">
+                                        <% for( int i = 0; i < lyric.length; i++) {%>
+                                             <p class="lyric-item"><%=lyric[i]%></p>
+                                        <%}%>
+                                </div>
+
                             </div>
                         </div>
                         <ul class="list-song">
-                            <% ArrayList<Song> playlistSong = (ArrayList<Song>) session.getAttribute("playlistNow");
+                            <% ArrayList<Song> playlistSong = (ArrayList<Song>) session.getAttribute("playlistDetailNow");
                                 for(int i = 0;i < playlistSong.size(); i++){
                             %>
                             <li class="list-song-item">
                                 <a
 
-                                        href="SongServlet1?action=detailPage&&idSongNow=<%=playlistSong.get(i).getIdSong()%>"
+                                        href="PlaylistServlet?action=detailPage&&idSongNow=<%=playlistSong.get(i).getIdSong()%>"
                                         class="general-playlist-link-song"
                                 >
                                     <div
@@ -206,7 +213,6 @@
                                             </p>
                                         </div>
                                         <img
-
                                                 src="<%=playlistSong.get(i).getTarget()%>"
                                                 alt=""
                                                 class="general-playlist-img"
@@ -239,5 +245,5 @@
             </div>
         </div>
     </body>
-    <script language="Javascript" src="./detail-page.js"></script>
+    <script language="JavaScript" src="detail-page5.js"></script>
 </html>
