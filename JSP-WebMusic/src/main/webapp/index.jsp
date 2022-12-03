@@ -28,7 +28,11 @@ charset=UTF-8" pageEncoding="UTF-8" %>
                 </div>
                 <nav class="nav-app">
                     <a href="./index.jsp" class="nav-item active-nav"> Home </a>
+<<<<<<< HEAD
+                    <a href="PlaylistServlet?action=generalPlaylist" class="nav-item">
+=======
                     <a href="./general-playlist.jsp" class="nav-item">
+>>>>>>> bedc4e128c5e1930a67392b8c7cf70b7d6d4caf3
                         General playlist
                     </a>
                     <a href="./detail-page.jsp" class="nav-item">
