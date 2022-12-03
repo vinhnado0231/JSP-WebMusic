@@ -4,13 +4,24 @@ public class Playlist {
     private int idList;
     private String nameList;
     private int idUser;
+    private String target;
+
+    public String getTarget() {
+        return target;
+    }
+
+    public void setTarget(String target) {
+        this.target = target;
+    }
+
     public Playlist(){
 
     }
-    public Playlist(int idList,String name,int idUser){
+    public Playlist(int idList,String name,int idUser,String target){
         this.idList=idList;
         this.idUser=idUser;
         this.nameList=name;
+        this.target=target;
     }
     public int getIdList() {
         return idList;

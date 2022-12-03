@@ -20,7 +20,8 @@ public class PlaylistDAO {
                 int id=Integer.parseInt(rs.getString("idlist"));
                 int iduser=Integer.parseInt(rs.getString("iduser"));
                 String namelist=rs.getString("namelist");
-                Playlist list=new Playlist(id,namelist,iduser);
+                String target=rs.getString("target");
+                Playlist list=new Playlist(id,namelist,iduser,target);
                 listSongs.add(list);
             }
         } catch (Exception e) {

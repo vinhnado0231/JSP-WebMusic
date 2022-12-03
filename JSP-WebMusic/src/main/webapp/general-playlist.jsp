@@ -1,5 +1,6 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="model.bean.Song" %>
+<%@ page import="model.bean.Playlist" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
     <head>
@@ -57,8 +58,8 @@
                                         </div>
                                     </a>
                                 </li>
-                                <% ArrayList<Song> playlistSong = (ArrayList<Song>) request.getAttribute("generalPlaylistSong");
-                                        for(int i=0;i<playlistSong.size();i++){
+                                <% ArrayList<Playlist> playlist = (ArrayList<Playlist>) session.getAttribute("allPlaylist");
+                                        for(int i=0;i<playlist.size();i++){
 
 
                                 %>
@@ -79,7 +80,8 @@
                                                 </p>
                                             </div>
                                             <img
-                                                src="../Media/MUSIC/1.Ritual - Alan Walker/1.png"
+
+                                                src="<%=playlist.get(i).getTarget()%>"
                                                 alt=""
                                                 class="general-playlist-img"
                                             />
@@ -88,17 +90,17 @@
                                             <h2
                                                 class="general-playlist-song-title"
                                             >
-                                                <%=playlistSong.get(i).getTenBaiHat()%>
+                                                <%=playlist.get(i).getNameList()%>
                                             </h2>
                                             <p
                                                 class="general-playlist-song-author"
                                             >
-                                                <%=playlistSong.get(i).getCaSi()%>
+                                                <%=playlist.get(i).getIdUser()%>
                                             </p>
                                             <p
                                                 class="general-playlist-song-time"
                                             >
-                                                <%=playlistSong.get(i).getThoiGian()%>
+                                                <%=playlist.get(i).getIdList()%>
                                             </p>
                                         </div>
                                     </a>
