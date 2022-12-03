@@ -18,6 +18,41 @@
     display: flex;
     justify-content: center;
     height: 100%;
+    flex-direction: column;
+}
+
+.search-container {
+    display: flex;
+    flex-flow: row-reverse;
+    gap: vaR(--spacing-md);
+}
+
+.search-input {
+    border-radius: var(--b-r-md);
+    background-color: var(--sub-color);
+    color: var(--contrast-color);
+    outline: none;
+    border: 1px solid transparent;
+    padding: var(--spacing-sm);
+    transition: border 0.2s ease-out;
+}
+
+.search-input:focus {
+    border: 1px solid var(--primary-color);
+}
+
+.search-button {
+    border: none;
+    width: 100px;
+    background-color: var(--primary-color);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--b-r-mch);
+    color: var(--contrast-color);
+    transition: background-color 0.2s ease;
+}
+
+.search-button:hover {
+    background-color: var(--primary-dark-color);
 }
 
 .general-playlist {

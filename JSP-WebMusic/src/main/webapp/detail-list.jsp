@@ -4,7 +4,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-  <link rel="stylesheet" href="./general-playlist3.css" />
+  <link rel="stylesheet" href="general-playlist5.css" />
   <link rel="stylesheet" href="./index.css" />
   <link rel="stylesheet" href="./user-avt.css">
   <link
@@ -38,7 +38,9 @@
             General playlist
         </a>
         <%try {if ((boolean) session.getAttribute("checkLogin")) {%>
-        <a href="./detail-page.jsp" class="nav-item">
+        <a href="./detail-page.jsp" class="nav-item <%try {if (session.getAttribute("changePage").equals("yourPlaylist")) {%>
+                                active-nav
+                            <%}} catch (Exception e) {}%>">
             Your playlist
         </a>
         <%}} catch (Exception e) {%> <%}%>
@@ -92,6 +94,10 @@
       <div class="general-playlist-container">
         <h2 class="general-playlist-title"><%=((Playlist)session.getAttribute("playlistNow")).getNameList()%></h2>
         <div class="general-playlist-content">
+          <form action="PlaylistServlet?action=search" class="search-container">
+            <input type="text" name="searchIxt" class="search-input" placeholder="Name song">
+            <button class="search-button">Search</button>
+          </form>
           <ul class="general-playlist">
 
             <% ArrayList<Song> playlistSong = (ArrayList<Song>) session.getAttribute("playlistSong");
