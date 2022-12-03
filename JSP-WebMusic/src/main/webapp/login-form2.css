@@ -7,6 +7,14 @@
     text-shadow: var(--text-shadow);
 }
 
+.login-noti {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    color: var(--contrast-color);
+    text-shadow: var(--text-shadow);
+}
+
 .login-form {
     width: 400px;
     display: flex;
