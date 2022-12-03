@@ -2,6 +2,7 @@ package model.dao;
 
 import model.bean.Playlist;
 import model.bean.Song;
+import model.bo.PlaylistBO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -20,7 +21,7 @@ public class PlaylistDAO {
         try {
             Connection conn = connectDB.getAConnect();
             Statement stmt = conn.createStatement();
-            String sql = "select * from playlist";
+            String sql = "select * from playlist where iduser=0";
             ResultSet rs=stmt.executeQuery(sql);
             while(rs.next()){
                 int id=Integer.parseInt(rs.getString("idlist"));
@@ -153,6 +154,46 @@ public class PlaylistDAO {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+    public Playlist getPlaylistByID(String idlist){
+        Playlist A=new Playlist();
+        try {
+            Connection conn = connectDB.getAConnect();
+            Statement stmt = conn.createStatement();
+            String sql = "select * from playlist where idlist="+idlist;
+            ResultSet rs=stmt.executeQuery(sql);
+            while(rs.next()){
+                int id=Integer.parseInt(rs.getString("idlist"));
+                int iduser=Integer.parseInt(rs.getString("iduser"));
+                String namelist=rs.getString("namelist");
+                String target=rs.getString("target");
+                Playlist list=new Playlist(id,namelist,iduser,target);
+                A=list;
+            }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        return A;
+    }
+    public ArrayList<Playlist> getPlayListofUser(int id){
+        ArrayList<Playlist> listSongs = new ArrayList<>();
+        try {
+            Connection conn = connectDB.getAConnect();
+            Statement stmt = conn.createStatement();
+            String sql = "select * from playlist where iduser="+id;
+            ResultSet rs=stmt.executeQuery(sql);
+            while(rs.next()){
+                int idlist=Integer.parseInt(rs.getString("idlist"));
+                int iduser=Integer.parseInt(rs.getString("iduser"));
+                String namelist=rs.getString("namelist");
+                String target=rs.getString("target");
+                Playlist list=new Playlist(idlist,namelist,iduser,target);
+                listSongs.add(list);
+            }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        return listSongs;
     }
 
 }

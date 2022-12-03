@@ -1,5 +1,6 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="model.bean.Song" %>
+<%@ page import="model.bean.Playlist" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -89,21 +90,10 @@
 
     <div class="container-app-content">
       <div class="general-playlist-container">
-        <h2 class="general-playlist-title">General playlist</h2>
+        <h2 class="general-playlist-title"><%=((Playlist)session.getAttribute("playlistNow")).getNameList()%></h2>
         <div class="general-playlist-content">
           <ul class="general-playlist">
-            <li class="general-playlist-add-song">
-              <a
-                      href="./add-form.jsp"
-                      class="add-song-container"
-              >
-                <div class="overplay-add-song">
-                  <i
-                          class="fa-solid fa-plus icon-play-playlist"
-                  ></i>
-                </div>
-              </a>
-            </li>
+
             <% ArrayList<Song> playlistSong = (ArrayList<Song>) session.getAttribute("playlistSong");
               for(int i=0;i<playlistSong.size();i++){
 
@@ -111,7 +101,8 @@
             %>
             <li class="general-playlist-song">
               <a
-                      href="SongServlet1?action=detail"
+
+                      href="PlaylistServlet?action=detailPage&&idSongNow=<%=playlistSong.get(i).getIdSong()%>"
                       class="general-playlist-link-song"
               >
                 <div

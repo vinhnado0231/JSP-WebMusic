@@ -39,7 +39,7 @@
                         General playlist
                     </a>
                     <%try {if ((boolean) session.getAttribute("checkLogin")) {%>
-                    <a href="./detail-page.jsp" class="nav-item">
+                    <a href="PlaylistServlet?action=yourPlaylist" class="nav-item">
                         Your playlist
                     </a>
                     <%}} catch (Exception e) {%> <%}%>
@@ -94,18 +94,7 @@
                         <h2 class="general-playlist-title">General playlist</h2>
                         <div class="general-playlist-content">
                             <ul class="general-playlist">
-                                <li class="general-playlist-add-song">
-                                    <a
-                                        href="./add-form.jsp"
-                                        class="add-song-container"
-                                    >
-                                        <div class="overplay-add-song">
-                                            <i
-                                                class="fa-solid fa-plus icon-play-playlist"
-                                            ></i>
-                                        </div>
-                                    </a>
-                                </li>
+
                                 <% ArrayList<Playlist> playlist = (ArrayList<Playlist>) session.getAttribute("allPlaylist");
                                         for(int i=0;i<playlist.size();i++){
 
@@ -142,20 +131,20 @@
                                             <p
                                                 class="general-playlist-song-author"
                                             >
-                                                <%=playlist.get(i).getIdUser()%>
+<%--                                                <%=playlist.get(i).getIdUser()%>--%>
                                             </p>
                                             <p
                                                 class="general-playlist-song-time"
                                             >
-                                                <%=playlist.get(i).getIdList()%>
+<%--                                                <%=playlist.get(i).getIdList()%>--%>
                                             </p>
                                         </div>
                                     </a>
                                     <a
-                                        href="./edit-form.jsp"
+                                        href="PlaylistServlet?action=detailList&&detailList=<%=playlist.get(i).getIdList()%>"
                                         class="button-song"
                                     >
-                                        Edit
+                                        Detail
                                     </a>
                                 </li>
                                <%  }%>
