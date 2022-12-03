@@ -111,7 +111,7 @@
             %>
             <li class="general-playlist-song">
               <a
-                      href="./detail-page.jsp"
+                      href="SongServlet1?action=detail"
                       class="general-playlist-link-song"
               >
                 <div
