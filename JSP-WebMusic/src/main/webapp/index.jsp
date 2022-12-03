@@ -27,7 +27,7 @@ charset=UTF-8" pageEncoding="UTF-8" %>
                 </div>
                 <nav class="nav-app">
                     <a href="./index.jsp" class="nav-item active-nav"> Home </a>
-                    <a href="./general-playlist.jsp" class="nav-item">
+                    <a href="PlaylistServlet?generalPlaylist?=1" class="nav-item">
                         General playlist
                     </a>
                     <a href="./detail-page.jsp" class="nav-item">
