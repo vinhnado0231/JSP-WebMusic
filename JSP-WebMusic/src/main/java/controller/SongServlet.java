@@ -30,26 +30,26 @@ public class SongServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws
             ServletException, IOException {
         System.out.println("VAo post");
-//        String action = request.getParameter("action");
-//        if (action == null) {
-//            action = "";
-//        }
-//        switch (action) {
-//            case "create":
-//
-//                break;
-//            case "update":
-//
-//                break;
-//            case "delete":
-//
-//                break;
-//            case "search":
-//
-//                break;
-//            default:
-//                break;
-//        }
+        String action = request.getParameter("action");
+        if (action == null) {
+            action = "";
+        }
+        switch (action) {
+            case "create":
+
+                break;
+            case "update":
+
+                break;
+            case "delete":
+
+                break;
+            case "search":
+
+                break;
+            default:
+                break;
+        }
     }
 
     private void createSongForm(HttpServletRequest request, HttpServletResponse response) throws

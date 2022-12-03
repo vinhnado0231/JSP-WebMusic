@@ -12,7 +12,7 @@ public class UserDAO {
 
     private final ConnectDB connectDB = new ConnectDB();
     private final Connection conn = connectDB.getAConnect();
-    private final String find_user_by_id = "select * from user where iuser=?";
+    private final String find_user_by_id = "select * from user where iduser=?";
     private final String insert_new_user = "INSERT INTO `user` (`iduser`, `name`, `gmail`, `idaccount`, `idrole`) VALUES (NULL, ?, ?, ?, ?)";
     private final String update_user = "update user set name=?,gmail=?,idaccount=?,idrole=? where iduser=?";
     private final String get_user_by_idaccount="select * from user where idaccount=?";
@@ -28,7 +28,8 @@ public class UserDAO {
                 String gmail = rs.getString("gmail");
                 int idaccount = Integer.parseInt(rs.getString("idaccount"));
                 int idrole = Integer.parseInt(rs.getString("idrole"));
-                return new User(iduser, name, gmail, idaccount, idrole);
+                String avt = rs.getString("avt");
+                return new User(iduser, name, gmail, idaccount, idrole, avt);
             }
         } catch (Exception e) {
 
@@ -47,7 +48,8 @@ public class UserDAO {
                 String gmail = rs.getString("gmail");
                 int idaccount = Integer.parseInt(rs.getString("idaccount"));
                 int idrole = Integer.parseInt(rs.getString("idrole"));
-                return new User(iduser, name, gmail, idaccount, idrole);
+                String avt = rs.getString("avt");
+                return new User(iduser, name, gmail, idaccount, idrole, avt);
             }
         } catch (Exception e) {
 
