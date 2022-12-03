@@ -1,6 +1,5 @@
 package controller;
 
-import model.bo.AccountBO;
 import model.bo.SongBO;
 
 import javax.servlet.RequestDispatcher;
@@ -9,12 +8,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.File;
 import java.io.IOException;
+import java.sql.SQLException;
 
 @WebServlet(name = "SongServlet", value = "/SongServlet")
 public class SongServlet extends HttpServlet {
     private SongBO songBO = new SongBO();
-    private AccountBO accountBO = new AccountBO();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -22,27 +22,31 @@ public class SongServlet extends HttpServlet {
         if (action == null) {
             action = "";
         }
-        switch (action) {
-            case "create":
+        try {
+            switch (action) {
+                case "create":
+                    createSongForm(request, response);
+                    break;
+                case "update":
 
-                break;
-            case "update":
+                    break;
+                case "delete":
 
-                break;
-            case "delete":
+                    break;
+                case "search":
 
-                break;
-            case "search":
-
-                break;
-            default:
-                break;
+                    break;
+                default:
+                    break;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
-
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws
+            ServletException, IOException {
         String action = request.getParameter("action");
         if (action == null) {
             action = "";
@@ -64,6 +68,20 @@ public class SongServlet extends HttpServlet {
                 break;
         }
     }
+
+    private void createSongForm(HttpServletRequest request, HttpServletResponse response) throws
+            ServletException, IOException, SQLException {
+        RequestDispatcher dispatcher = request.getRequestDispatcher("add-form.jsp");
+        dispatcher.forward(request, response);
+    }
+
+    private void createSong(HttpServletRequest request, HttpServletResponse response) throws
+            ServletException, IOException, SQLException {
+
+        RequestDispatcher dispatcher = request.getRequestDispatcher("add-form.jsp");
+        dispatcher.forward(request, response);
+    }
+
 
 
 }
