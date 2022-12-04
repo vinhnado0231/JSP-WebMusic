@@ -162,6 +162,7 @@
                   </p>
                 </div>
               </a>
+
               <a
                       href="PlaylistServlet?action=editDetailList&&idDetailList=<%=playlist.get(i).getIdList()%>"
                       class="button-song"

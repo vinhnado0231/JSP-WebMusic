@@ -171,7 +171,7 @@ public class PlaylistServlet extends HttpServlet {
         } else if (request.getParameter("action").equals("createNewPlaylist")) {
             HttpSession session = request.getSession();
             int iduser = ((User) session.getAttribute("userNow")).getIduser();
-            playlistBO.addPlayList(iduser, request.getParameter("nameList"), "");
+            playlistBO.addPlayList(iduser, request.getParameter("nameList"), "../Media/PlaylistIMG/0.png");
             response.sendRedirect("/PlaylistServlet?action=yourPlaylist");
         }else if(request.getParameter("action").equals("search")){
             HttpSession session = request.getSession();
