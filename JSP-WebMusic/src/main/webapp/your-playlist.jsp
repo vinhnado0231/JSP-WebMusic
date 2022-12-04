@@ -122,7 +122,7 @@
             %>
             <li class="general-playlist-song">
               <a
-                      href="PlaylistServlet?action=detailList&&detailList=<%=playlist.get(i).getIdList()%>"
+                      href="PlaylistServlet?action=detailYourList&&idYourDetailList=<%=playlist.get(i).getIdList()%>"
                       class="general-playlist-link-song"
               >
                 <div
