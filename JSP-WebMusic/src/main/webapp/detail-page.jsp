@@ -4,6 +4,7 @@
 <%@ page import="model.bean.Playlist" %>
 <%@ page import="java.lang.reflect.Array" %>
 <%@ page import="java.util.Arrays" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
