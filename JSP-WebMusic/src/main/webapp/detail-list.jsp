@@ -11,6 +11,7 @@
           rel="stylesheet"
           href="../Media/fontawesome-free-6.2.1-web/css/all.min.css"
   />
+  <link rel="shortcut icon" href="./Media/AVATAR/AVT1.png" type="image/png">
 </head>
 <body>
 <div class="container-app">
@@ -95,21 +96,18 @@
         <h2 class="general-playlist-title"><%=((Playlist)session.getAttribute("playlistNow")).getNameList()%></h2>
         <div class="general-playlist-content">
           <form action="PlaylistServlet?action=search" class="search-container">
-            <input type="text" name="searchIxt" class="search-input" placeholder="Name song">
             <button class="search-button">Search</button>
+            <input type="text" name="searchIxt" class="search-input" placeholder="Name song">
           </form>
           <ul class="general-playlist">
 
             <% ArrayList<Song> playlistSong = (ArrayList<Song>) session.getAttribute("playlistSong");
               for(int i=0;i<playlistSong.size();i++){
-
-
             %>
             <li class="general-playlist-song">
               <a
 
-                        href="PlaylistServlet?action=detailPage&&idSongNow=<%=playlistSong.get(i).getIdSong()%>"
-<%--                      href="PlaylistServlet?action=detailPage&&idSongNow=<%=playlistSong.get(i).getIdSong()%>"--%>
+                      href="PlaylistServlet?action=detailPage&&idSongNow=<%=playlistSong.get(i).getIdSong()%>"
                       class="general-playlist-link-song"
               >
                 <div
