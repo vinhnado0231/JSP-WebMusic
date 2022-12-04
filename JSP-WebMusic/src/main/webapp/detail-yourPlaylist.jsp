@@ -4,7 +4,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <link rel="stylesheet" href="./general-playlist3.css" />
+    <link rel="stylesheet" href="./general-playlist5.css" />
     <link rel="stylesheet" href="./index.css" />
     <link rel="stylesheet" href="./user-avt.css">
     <link
