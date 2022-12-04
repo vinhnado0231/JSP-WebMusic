@@ -90,7 +90,16 @@ public class PlaylistServlet extends HttpServlet {
         PlaylistBO playlistBO = new PlaylistBO();
 
         if (request.getParameter("action").equals("generalPlaylist")) {
+
             HttpSession session = request.getSession();
+            try {
+                if (session.getAttribute("userNow") != null) {
+                    ArrayList<Playlist> yourPlaylist = playlistBO.getPlayListofUser(((User)session.getAttribute("userNow")).getIduser());
+                    session.setAttribute("yourPlaylist", yourPlaylist);
+                }
+            } catch (Exception e) {
+
+            }
             session.setAttribute("changePage", "generalPlaylist");
             ArrayList<Playlist> allPlaylist = playlistBO.getAllPlaylist();
             session.setAttribute("allPlaylist", allPlaylist);

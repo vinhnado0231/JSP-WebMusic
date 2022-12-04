@@ -183,3 +183,7 @@
 .button-song:hover {
     background-color: var(--primary-dark-color);
 }
+
+.select-playlist {
+    width: 100px;
+}

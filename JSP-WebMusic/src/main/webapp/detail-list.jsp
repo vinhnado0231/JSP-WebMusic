@@ -21,58 +21,58 @@
     </a>
     <nav class="nav-app">
         <a
-            href="AccountServlet?action=/"
-            class= "nav-item <%try {if (session.getAttribute("changePage").equals("home")) {%>
-                    active-nav
-                <%}} catch (Exception e) {%>
-                    active-nav
-                <%}%>"
+                href="AccountServlet?action=/"
+                class= "nav-item <%try {if (session.getAttribute("changePage").equals("home")) {%>
+                            active-nav
+                        <%}} catch (Exception e) {%>
+                            active-nav
+                        <%}%>"
         >
             Home
         </a>
         <a
-            href="PlaylistServlet?action=generalPlaylist"
-            class= "nav-item <%try {if (session.getAttribute("changePage").equals("generalPlaylist")) {%>
-                    active-nav
-                <%}} catch (Exception e) {}%> "
+                href="PlaylistServlet?action=generalPlaylist"
+                class= "nav-item <%try {if (session.getAttribute("changePage").equals("generalPlaylist")) {%>
+                            active-nav
+                        <%}} catch (Exception e) {}%> "
         >
             General playlist
         </a>
         <%try {if ((boolean) session.getAttribute("checkLogin")) {%>
-        <a href="./detail-page.jsp" class="nav-item <%try {if (session.getAttribute("changePage").equals("yourPlaylist")) {%>
-                                active-nav
-                            <%}} catch (Exception e) {}%>">
+        <a href="PlaylistServlet?action=yourPlaylist" class="nav-item <%try {if (session.getAttribute("changePage").equals("yourPlaylist")) {%>
+                            active-nav
+                        <%}} catch (Exception e) {}%>">
             Your playlist
         </a>
         <%}} catch (Exception e) {%> <%}%>
 
         <%try {if (!(boolean)
-            session.getAttribute("checkLogin")) {
+                session.getAttribute("checkLogin")) {
         %>
         <a
-            href="AccountServlet?action=loginForm"
-            class="login-button"
+                href="AccountServlet?action=loginForm"
+                class="login-button"
         >
             Login now
         </a>
         <%} else {%>
         <div class="user-avt-container">
             <a
-                href="AccountServlet?action=logout"
-                class="log-out-container"
+                    href="AccountServlet?action=logout"
+                    class="log-out-container"
             >
                 <i class="fa-solid fa-arrow-right-from-bracket"></i>
             </a>
             <img
-                src="./Media/AVATAR/AVT1.png"
-                alt="avt"
-                class="user-avt-img"
+                    src="./Media/AVATAR/AVT1.png"
+                    alt="avt"
+                    class="user-avt-img"
             />
         </div>
         <%}} catch (Exception e) {%>
         <a
-            href="AccountServlet?action=loginForm"
-            class="login-button"
+                href="AccountServlet?action=loginForm"
+                class="login-button"
         >
             Login now
         </a>
@@ -146,12 +146,26 @@
                   </p>
                 </div>
               </a>
-              <a
-                      href="./edit-form.jsp"
-                      class="button-song"
-              >
-                Detail
-              </a>
+                <%
+                    try {
+                        ArrayList<Playlist> listPlaylistUser = (ArrayList<Playlist>) session.getAttribute("yourPlaylist"); %>
+                          <select
+                                  class="button-song select-playlist"
+                                  onchange=window.location.href=this.value;
+                          >
+
+                              <%
+
+                          for (int k = 0; k < listPlaylistUser.size(); k++) {
+                    %>
+                              <option name="name" value="PlaylistServlet?action=addSongToYourPlaylist&&idPlaylistAddYourPlaylist=<%=listPlaylistUser.get(k).getIdList()%>&&idSongAdd=<%=playlistSong.get(i).getIdSong()%>">
+                                  <%=listPlaylistUser.get(k).getNameList()%>
+                              </option> <%}%>
+                          </select>
+                  <%} catch (Exception e) {
+
+                  }%>
+
             </li>
             <%  }%>
           </ul>
