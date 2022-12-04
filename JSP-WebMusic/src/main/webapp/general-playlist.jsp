@@ -12,6 +12,7 @@
             rel="stylesheet"
             href="../Media/fontawesome-free-6.2.1-web/css/all.min.css"
         />
+        <link rel="shortcut icon" href="./Media/AVATAR/logo.png" type="logo/png">
     </head>
     <body>
         <div class="container-app">
