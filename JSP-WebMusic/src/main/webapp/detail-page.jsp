@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link rel="stylesheet" href="detail-page5.css" />
+        <link rel="stylesheet" href="detail-page6.css" />
         <link rel="stylesheet" href="./index.css" />
         <link rel="stylesheet" href="./user-avt.css" />
         <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
@@ -51,7 +51,7 @@
                     <%try {if ((boolean) session.getAttribute("checkLogin")) {%>
                     <a href="./detail-page.jsp" class="nav-item <%try {if (session.getAttribute("changePage").equals("yourPlaylist")) {%>
                                 active-nav
-                            <%}} catch (Exception e) {}%>">
+                            <%}} catch (Exception e) {}%>/">
                         Your playlist
                     </a>
                     <%}} catch (Exception e) {%> <%}%>

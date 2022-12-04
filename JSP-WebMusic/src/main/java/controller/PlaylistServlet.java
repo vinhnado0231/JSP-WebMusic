@@ -107,6 +107,7 @@ public class PlaylistServlet extends HttpServlet {
             rd.forward(request, response);
         } else if (request.getParameter("action").equals("yourPlaylist")) {
             HttpSession session = request.getSession();
+            session.setAttribute("changePage", "yourPlaylist");
             User userNow = (User) session.getAttribute("userNow");
             ArrayList<Playlist> yourPlaylist = playlistBO.getPlayListofUser(userNow.getIduser());
             session.setAttribute("yourPlaylist", yourPlaylist);
