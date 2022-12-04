@@ -91,7 +91,16 @@ public class PlaylistServlet extends HttpServlet {
         PlaylistBO playlistBO = new PlaylistBO();
 
         if (request.getParameter("action").equals("generalPlaylist")) {
+
             HttpSession session = request.getSession();
+            try {
+                if (session.getAttribute("userNow") != null) {
+                    ArrayList<Playlist> yourPlaylist = playlistBO.getPlayListofUser(((User)session.getAttribute("userNow")).getIduser());
+                    session.setAttribute("yourPlaylist", yourPlaylist);
+                }
+            } catch (Exception e) {
+
+            }
             session.setAttribute("changePage", "generalPlaylist");
             ArrayList<Playlist> allPlaylist = playlistBO.getAllPlaylist();
             session.setAttribute("allPlaylist", allPlaylist);
@@ -181,7 +190,13 @@ public class PlaylistServlet extends HttpServlet {
             session.setAttribute("playlistSong", list);
             RequestDispatcher rd = getServletContext().getRequestDispatcher("/detail-list.jsp");
             rd.forward(request, response);
+        } else if (request.getParameter("action").equals("addSongToYourPlaylist")) {
+            playlistBO.addSongToPlayList(Integer.parseInt(request.getParameter("idSongAdd")), Integer.parseInt(request.getParameter("idPlaylistAddYourPlaylist")));
+            RequestDispatcher rd = getServletContext().getRequestDispatcher("/detail-list.jsp");
+            rd.forward(request, response);
         }
+
+
     }
 
     //    private void displayGeneralPlaylist(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
