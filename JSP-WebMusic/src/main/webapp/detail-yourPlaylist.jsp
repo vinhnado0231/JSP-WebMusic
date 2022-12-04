@@ -4,25 +4,25 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-  <link rel="stylesheet" href="general-playlist5.css" />
-  <link rel="stylesheet" href="./index.css" />
-  <link rel="stylesheet" href="./user-avt.css">
-  <link
-          rel="stylesheet"
-          href="../Media/fontawesome-free-6.2.1-web/css/all.min.css"
-  />
+    <link rel="stylesheet" href="./general-playlist5.css" />
+    <link rel="stylesheet" href="./index.css" />
+    <link rel="stylesheet" href="./user-avt.css">
+    <link
+            rel="stylesheet"
+            href="../Media/fontawesome-free-6.2.1-web/css/all.min.css"
+    />
     <link rel="shortcut icon" href="./Media/AVATAR/logo.png" type="logo/png">
 </head>
 <body>
 <div class="container-app">
     <header class="header-app">
         <a href="AccountServlet?action=/" class="container-logo">
-            <img src="./Media/logo.png" class="logo-app"/>
+            <img src="./Media/logo.png" class="logo-app" />
         </a>
         <nav class="nav-app">
             <a
                     href="AccountServlet?action=/"
-                    class="nav-item <%try {if (session.getAttribute("changePage").equals("home")) {%>
+                    class= "nav-item <%try {if (session.getAttribute("changePage").equals("home")) {%>
                     active-nav
                 <%}} catch (Exception e) {%>
                     active-nav
@@ -32,31 +32,20 @@
             </a>
             <a
                     href="PlaylistServlet?action=generalPlaylist"
-                    class="nav-item <%try {if (session.getAttribute("changePage").equals("generalPlaylist")) {%>
+                    class= "nav-item <%try {if (session.getAttribute("changePage").equals("generalPlaylist")) {%>
                     active-nav
                 <%}} catch (Exception e) {}%> "
             >
                 General playlist
             </a>
-            <%
-                try {
-                    if ((boolean) session.getAttribute("checkLogin")) {
-            %>
-            <a href="./detail-page.jsp"
-               class="nav-item <%try {if (session.getAttribute("changePage").equals("yourPlaylist")) {%>
-                                active-nav
-                            <%}} catch (Exception e) {}%>">
+            <%try {if ((boolean) session.getAttribute("checkLogin")) {%>
+            <a href="./detail-page.jsp" class="nav-item">
                 Your playlist
             </a>
-            <%
-                }
-            } catch (Exception e) {
-            %> <%}%>
+            <%}} catch (Exception e) {%> <%}%>
 
-            <%
-                try {
-                    if (!(boolean)
-                            session.getAttribute("checkLogin")) {
+            <%try {if (!(boolean)
+                    session.getAttribute("checkLogin")) {
             %>
             <a
                     href="AccountServlet?action=loginForm"
@@ -78,10 +67,7 @@
                         class="user-avt-img"
                 />
             </div>
-            <%
-                }
-            } catch (Exception e) {
-            %>
+            <%}} catch (Exception e) {%>
             <a
                     href="AccountServlet?action=loginForm"
                     class="login-button"
@@ -105,22 +91,17 @@
 
         <div class="container-app-content">
             <div class="general-playlist-container">
-                <h2 class="general-playlist-title"><%=((Playlist) session.getAttribute("playlistNow")).getNameList()%>
-                </h2>
+                <h2 class="general-playlist-title"><%=((Playlist)session.getAttribute("playlistNow")).getNameList()%></h2>
                 <div class="general-playlist-content">
-
-                    <form action="PlaylistServlet?action=search" class="search-container" method="post">
-                        <input type="text" name="search_txt" class="search-input" placeholder="Name song">
-                        <button class="search-button">Search</button>
-                    </form>
                     <ul class="general-playlist">
 
                         <% ArrayList<Song> playlistSong = (ArrayList<Song>) session.getAttribute("playlistSong");
-                            for (int i = 0; i < playlistSong.size(); i++) {
+                            for(int i=0;i<playlistSong.size();i++){
+
+
                         %>
                         <li class="general-playlist-song">
                             <a
-
                                     href="PlaylistServlet?action=detailPage&&idSongNow=<%=playlistSong.get(i).getIdSong()%>"
                             <%--                      href="PlaylistServlet?action=detailPage&&idSongNow=<%=playlistSong.get(i).getIdSong()%>"--%>
                                     class="general-playlist-link-song"
@@ -162,13 +143,13 @@
                                 </div>
                             </a>
                             <a
-                                    href="./edit-form.jsp"
+                                    href="PlaylistServlet?action=deleteDetailList&&idDel=<%=playlistSong.get(i).getIdSong()%>"
                                     class="button-song"
                             >
-                                Detail
+                                Delete
                             </a>
                         </li>
-                        <% }%>
+                        <%  }%>
                     </ul>
                 </div>
             </div>

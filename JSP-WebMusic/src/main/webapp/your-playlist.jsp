@@ -13,6 +13,7 @@
           rel="stylesheet"
           href="../Media/fontawesome-free-6.2.1-web/css/all.min.css"
   />
+  <link rel="shortcut icon" href="./Media/AVATAR/logo.png" type="logo/png">
 </head>
 <body>
 <div class="container-app">
@@ -122,7 +123,7 @@
             %>
             <li class="general-playlist-song">
               <a
-                      href="PlaylistServlet?action=detailList&&detailList=<%=playlist.get(i).getIdList()%>"
+                      href="PlaylistServlet?action=detailYourList&&idYourDetailList=<%=playlist.get(i).getIdList()%>"
                       class="general-playlist-link-song"
               >
                 <div
