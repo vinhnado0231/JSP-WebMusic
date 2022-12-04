@@ -23,6 +23,7 @@ import java.util.ArrayList;
         maxRequestSize = 1024 * 1024 * 100)
 public class PlaylistServlet extends HttpServlet {
     private PlaylistBO playlistBO = new PlaylistBO();
+    private SongBO songBO = new SongBO();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -172,10 +173,15 @@ public class PlaylistServlet extends HttpServlet {
             int iduser = ((User) session.getAttribute("userNow")).getIduser();
             playlistBO.addPlayList(iduser, request.getParameter("nameList"), "");
             response.sendRedirect("/PlaylistServlet?action=yourPlaylist");
+        }else if(request.getParameter("action").equals("search")){
+            HttpSession session = request.getSession();
+            int idPLaylistNow = (int)session.getAttribute("idPlaylistNow");
+            String idSongNow = request.getParameter("idSongNow");
+            ArrayList<Song> list = songBO.searchSong(request.getParameter("search_txt"),idPLaylistNow);
+            session.setAttribute("playlistSong", list);
+            RequestDispatcher rd = getServletContext().getRequestDispatcher("/detail-list.jsp");
+            rd.forward(request, response);
         }
-
-
-
     }
 
     //    private void displayGeneralPlaylist(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

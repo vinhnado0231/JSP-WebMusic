@@ -26,7 +26,10 @@ public class SongDAO {
     private final String delete_playlist_detail = "delete from playlist_detail where idSong=?";
     private final String delete_song = "delete from song where id=?";
     private final String select_song_by_id = "select * from song where id=?";
-    private final String search_song = "select * from song where TenBaiHat like concat('%' , ? ,'%')";
+    private final String search_song = "select song.id, song.TenBaiHat, song.CaSi, song.LoiBaiHat, song.SangTac, song.ThoiGian, song.LuotNghe, song.target from song " +
+            "inner join playlist_detail on playlist_detail.idsong=song.id " +
+            "inner join playlist on playlist.idlist=playlist_detail.idlist " +
+            "where playlist.idlist= ? and song.TenBaiHat like concat('%' , ? ,'%')";
 
     public ArrayList<Song> getAllSongByPlaylist(int idList) {
         ArrayList<Song> listSongs = new ArrayList<>();
@@ -121,11 +124,12 @@ public class SongDAO {
         }
     }
 
-    public ArrayList<Song> searchSongByName(String nameSong) {
+    public ArrayList<Song> searchSongByName(String nameSong,int idList) {
         ArrayList<Song> listSongs = new ArrayList<>();
         try {
             PreparedStatement preparedStatement = conn.prepareStatement(search_song);
-            preparedStatement.setString(1, nameSong);
+            preparedStatement.setInt(1, idList);
+            preparedStatement.setString(2, nameSong);
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
                 int id = Integer.parseInt(rs.getString("id"));
@@ -142,7 +146,6 @@ public class SongDAO {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
         return listSongs;
     }
 }
