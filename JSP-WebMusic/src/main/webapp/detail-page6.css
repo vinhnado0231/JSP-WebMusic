@@ -228,6 +228,7 @@ i.fa-volume-up {
     flex: 1;
     height: 100%;
     overflow: hidden;
+    text-align: center;
 }
 
 
