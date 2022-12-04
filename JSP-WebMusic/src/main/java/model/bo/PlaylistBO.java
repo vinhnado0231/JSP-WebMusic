@@ -17,8 +17,8 @@ public class PlaylistBO {
         return playlistDAO.getAllSongByIDPlayList(idlist);
     }
 
-    public void addPlayList(int idUser, String nameList) {
-        playlistDAO.addPlayList(idUser, nameList);
+    public void addPlayList(int idUser, String nameList,String target) {
+        playlistDAO.addPlayList(idUser, nameList,target);
     }
 
     public void deletePlayList(int idlist) {

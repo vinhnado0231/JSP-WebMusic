@@ -12,11 +12,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 
-@WebServlet("/SongServlet1")
+@WebServlet("/SongServlet")
 public class SongServlet extends HttpServlet {
     private SongBO songBO = new SongBO();
     private UserBO userBO = new UserBO();
@@ -32,7 +31,6 @@ public class SongServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws
             ServletException, IOException {
-
         System.out.println("VAo post");
         String action = request.getParameter("action");
         if (action == null) {
@@ -90,7 +88,4 @@ public class SongServlet extends HttpServlet {
 
         response.sendRedirect("/detail-page.jsp");
     }
-
-
-
 }
